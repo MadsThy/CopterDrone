@@ -46,7 +46,13 @@ auto wlan0
 iface wlan0 inet dhcp
 wpa-ssid "SDU-GUEST"
 ```
-
+## Install NPM, Node and Node-JS
+In order for the project to be able to run, we need Node-JS. Run these commands to install it.
+```
+sudo apt-get install npm
+sudo apt-get install node
+sudo apt-get install nodejs
+```
 ## Setup Python and Mavlink
 1. sudo apt-get install screen python-wxgtk2.8 python-matplotlib python-opencv python-pip python-numpy python-dev libxml2-dev libxslt-dev python-lxml
 2. sudo pip install future
