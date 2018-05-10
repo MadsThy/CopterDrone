@@ -1,5 +1,6 @@
-#To be able to use the python script, dronekit must be installed. Dronekit can be installed by typing "pip install dronekit" in the terminal
 import sys
+#To be able to use the python script, dronekit must be installed. Dronekit can be installed by typing "pip install dronekit" in the terminal
+from dronekit import connect
 
 #sys.argv is the parameter from node.js. This parameter is the input on the HTML page, i.e. the command which is sent to the Drone
 print("Output from python: " + sys.argv[1] + sys.argv[2])
@@ -8,14 +9,14 @@ print("Output from python: " + sys.argv[1] + sys.argv[2])
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
 
 #This is the method which takes the command from the HTML page. The command is then taken through some if else statements to check if the command is supported.
-def arm_and_takeoff(aTargetAltitude){
+def arm_and_takeoff(aTargetAltitude):
     """
     Arms vehicle and fly to aTargetAltitude.
     """
     aTargetAltitude = sys.argv[2]
     
     #If command is fly up
-    if(sys.argv[1] == "flyup"){
+    if(sys.argv[1] == "flyup"):
         print "Basic pre-arm checks"
         # Don't try to arm until autopilot is ready
         while not vehicle.is_armable:
@@ -46,7 +47,3 @@ def arm_and_takeoff(aTargetAltitude){
             time.sleep(1)
 
         arm_and_takeoff(20)
-    } else if (sys.argv[1] == "flydown"){
-        #TODO more commands
-    }
-}
