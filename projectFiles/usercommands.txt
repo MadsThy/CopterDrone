@@ -36,3 +36,4 @@ Command: qwe with value: qwe has been sent to the drone on: 2018-05-10 21:02:11
 Command:  with value:  has been sent to the drone on: 2018-05-10 21:02:40
 Command: qwe with value: qwe has been sent to the drone on: 2018-05-10 21:03:06
 Command:  with value:  has been sent to the drone on: 2018-05-10 21:03:19
+Command:  with value:  has been sent to the drone on: 2018-05-10 21:05:26

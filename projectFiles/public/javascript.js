@@ -1,3 +1,4 @@
+//Clear all inputs when command button is pressed
 function commandClear(){
     document.getElementById('commandValue').value="";
     document.getElementById('command').value="";
@@ -12,6 +13,7 @@ var datetime = currentdate.getDate() + "/"
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
 
+//Send an alert that the command has been sent
 function commandAlert(){
     alert("Command: " + document.getElementById('command').value + " with value " + document.getElementById('commandValue').value + " has been sent to the Drone at: " + datetime);
 }
