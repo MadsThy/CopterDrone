@@ -34,6 +34,18 @@ function with /userlog-->
         });
     });
 </script>
+
+<!--For reading Drone status. This AJAX request calls the nodejs 
+function with /dronestatus-->
+<script>
+    $(document).ready(function () {
+        $("#showDroneStatus").click(function () {
+            $.post("http://localhost:3000/dronestatus", function (data) {
+                $("#droneStatus").val(data);
+            });
+        });
+    });
+</script>
 </head>
 
 <body>

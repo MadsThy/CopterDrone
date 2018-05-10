@@ -52,12 +52,17 @@ app.post('/command',function(req,res){
   //Fire the 'savefile' event:
   eventEmitter.emit('savefile');  
 
-  //Call python script
+  //Call python script and get a return value from the "data" parameter
   var process = spawn('python',["scripts.py", usercommand, usercommandValue] );
     process.stdout.on('data', function(data) {
         console.log(data.toString());
     });
   res.end("yes");
+});
+
+//--------------------------------------------------
+app.post('/dronestatus',function(req,res){
+  res.send("data");
 });
 
 //--------------------------------------------------
