@@ -32,6 +32,7 @@ sudo raspi-config
 <details>
     <summary><b>WiFi setup on RPi</b></summary>
     <b>Files to change:</b>
+    
 1. sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
     
 ```
