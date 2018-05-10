@@ -8,10 +8,13 @@ var path           =         require('path')
 var app            =         express();
 
 //--------------------------------------------------
+//To use bodyparser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//To use static files like javascript and css
 app.use(express.static(path.join(__dirname, 'public')));
+
 //--------------------------------------------------
 //Serve html page
 app.get('/',function(req,res){
