@@ -1,3 +1,4 @@
+//The required keywords below needs to be installed with node.js npm or the program will not run.
 var fs             =         require('fs')
 var events         =         require('events');
 var express        =         require("express");
