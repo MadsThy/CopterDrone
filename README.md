@@ -15,9 +15,9 @@ NOTE: Username "pi" and password "raspberry".
 ## Commmands to run after installing Raspbian
 1. sudo apt-get update (takes up to 5 minutes)
 2. sudo raspi-config
-  2.1 In the utility, select “Advanced Options”
-  2.2 Set “Serial” to disable OS use of the serial connection
-  2.3 Reboot RPi
+  1. In the utility, select “Advanced Options”
+  2. Set “Serial” to disable OS use of the serial connection
+  3. Reboot RPi
 
 ## Setup WIFI on RPi
 1. sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
