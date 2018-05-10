@@ -65,7 +65,7 @@ wpa-ssid "SDU-GUEST"
 
 </details>
 
-<details><summary><b>Install NPM, Node and Node-JS</b></summary>
+<details><summary><b>Install NPM, Node, Node-JS, and Python</b></summary>
 In order for the project to be able to run, we need Node-JS. Run these commands to install it.
     
 ```
