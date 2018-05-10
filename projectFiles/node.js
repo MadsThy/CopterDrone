@@ -57,7 +57,6 @@ app.post('/command',function(req,res){
     process.stdout.on('data', function(data) {
         console.log(data.toString());
     });
-
   res.end("yes");
 });
 
