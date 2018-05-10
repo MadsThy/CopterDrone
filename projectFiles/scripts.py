@@ -1,10 +1,10 @@
 #To be able to use the python script, dronekit must be installed. Dronekit can be installed by typing "pip install dronekit" in the terminal
 import sys
 
-#sys.argv is the parameter from node.js. This parameter is the input on the HTML page, i.e. the command which is sent to the Drone.
+#sys.argv is the parameter from node.js. This parameter is the input on the HTML page, i.e. the command which is sent to the Drone
 print("Output from python: " + sys.argv[1])
 
-#Connect to the Vehicle (in this case a simulator running the same computer)
+#Connect to the Drone with an IP-adress and a port
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
 
 def arm_and_takeoff(aTargetAltitude){
