@@ -49,7 +49,7 @@ function with /dronestatus-->
 </head>
 
 <body>
-    <!--For sending command to drone and appending and appending user command to log with current time-->
+    <!--For sending command to drone and appending user command to log with current time-->
     <center>
         <label>Command</label>
         <br>
@@ -63,17 +63,20 @@ function with /dronestatus-->
         <br>
     </center>
 
-    <!--For reading command log which is stored on the server. This log is appended to when a user sends a command to the drone-->
+    <!--For reading the command log which is stored on the server. -->
     <center>
-        <input type="submit" value="Get user commands log" id="showUserCommandsLog" />
+        <input type="submit" value="Get User commands log" id="showUserCommandsLog" />
         <br>
         <textarea id="UserCommands"></textarea>
     </center>
 
-    <!--The Button and TextArea below are not implemented yet.-->
-    <!--For reading the Drone status-->
-    <input type="submit" value="Get Drone Status" id="showDroneStatus" />
-    <textarea id="droneStatus"></textarea>
+    <center>
+        <!--For reading the Drone status-->
+        <input type="submit" value="Get Drone status" id="showDroneStatus" />
+        <br>
+        <textarea id="droneStatus"></textarea>
+        <br>
+    </center>
 
     <!--Calls JavaScript at the end after the CSHTML and CSS have been loaded.-->
     <footer>
