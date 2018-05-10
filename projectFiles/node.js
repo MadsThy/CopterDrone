@@ -61,9 +61,15 @@ app.post('/command',function(req,res){
 });
 
 //--------------------------------------------------
+//AJAX call from /dronestatus
 app.post('/dronestatus',function(req,res){
-  res.send("data");
-});
+  //Call python script and get a return value from the "data" parameter
+  var process = spawn('python',["droneinfo.py", usercommand, usercommandValue] );
+    process.stdout.on('data', function(data) {
+        console.log(data.toString());
+        res.send(data);
+    });
+  });
 
 //--------------------------------------------------
 //Read Userlog
