@@ -12,15 +12,28 @@ This is a 4th semester project from 4 IT engineering students
 
 NOTE: Username "pi" and password "raspberry".
 
-## Commmands to run after installing Raspbian
-1. sudo apt-get update (takes up to 5 minutes)
-2. sudo raspi-config
-    1. In the utility, select “Advanced Options”
-    2. Set “Serial” to disable OS use of the serial connection
-    3. Reboot RPi
+## Commands to run after installing Raspbian
+<details>
+    <summary><b>Initial setup</b></summary>
+Commands to run:
+    
+```
+sudo apt-get update (takes up to 5 minutes)
+sudo raspi-config
+```
 
-## Setup WIFI on RPi
+<ol>
+    <li>In the raspi-config utility, select “Advanced Options”</li>
+    <li>Set “Serial” to disable OS use of the serial connection</li>
+    <li>Reboot RPi</li>
+</ol>
+</details>
+
+<details>
+    <summary><b>WiFi setup on RPi</b></summary>
+    <b>Files to change:</b>
 1. sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+    
 ```
 network={
   ssid="drone"
@@ -34,7 +47,9 @@ network={
   priority=2
 }
 ```
+
 2. sudo nano /etc/network/interfaces
+
 ```
 auto lo
 iface lo inet loopback
@@ -46,15 +61,25 @@ auto wlan0
 iface wlan0 inet dhcp
 wpa-ssid "SDU-GUEST"
 ```
-## Install NPM, Node and Node-JS
+
+</details>
+
+<details><summary><b>Install NPM, Node and Node-JS</b></summary>
 In order for the project to be able to run, we need Node-JS. Run these commands to install it.
+    
 ```
 sudo apt-get install npm
 sudo apt-get install node
 sudo apt-get install nodejs
 ```
-## Setup Python and Mavlink
-1. sudo apt-get install screen python-wxgtk2.8 python-matplotlib python-opencv python-pip python-numpy python-dev libxml2-dev libxslt-dev python-lxml
-2. sudo pip install future
-3. sudo pip install pymavlink
-4. sudo pip install mavproxy
+</details>
+<details><summary><b>Setup Python and Mavlink</b></summary>
+To prepare the RPi for mavlink communication, run these commands:
+    
+```
+sudo apt-get install screen python-wxgtk2.8 python-matplotlib python-opencv python-pip python-numpy python-dev libxml2-dev libxslt-dev python-lxml
+sudo pip install future
+sudo pip install pymavlink
+sudo pip install mavproxy
+```
+</details>
