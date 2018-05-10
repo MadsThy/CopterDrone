@@ -1,5 +1,6 @@
-#Install dronekit
+#To be able to use the python script, dronekit must be installed. Dronekit can be installed by typing "pip install dronekit" in the terminal
 import sys
+
 # Takes first name and last name via command line arguments and then display them
 print("Output from python: " + sys.argv[1])
 
