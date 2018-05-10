@@ -39,3 +39,100 @@ Command:  with value:  has been sent to the drone on: 2018-05-10 21:03:19
 Command:  with value:  has been sent to the drone on: 2018-05-10 21:05:26
 Command:  with value:  has been sent to the drone on: 2018-05-10 21:08:19
 Command:  with value:  has been sent to the drone on: 2018-05-10 21:11:43
+Drone status
+Starting copter simulator (SITL)
+SITL already Downloaded and Extracted.
+Ready to boot.
+
+Connecting to vehicle on: tcp:127.0.0.1:5760
+
+Get all vehicle attribute values:
+ Autopilot Firmware version: APM:Copter-3.3.0
+   Major version number: 3
+   Minor version number: 3
+   Patch version number: 0
+   Release type: rc
+   Release version: 0
+   Stable release?: True
+ Autopilot capabilities
+   Supports MISSION_FLOAT message type: True
+   Supports PARAM_FLOAT message type: True
+   Supports MISSION_INT message type: False
+   Supports COMMAND_INT message type: False
+   Supports PARAM_UNION message type: False
+   Supports ftp for file transfers: False
+   Supports commanding attitude offboard: False
+   Supports commanding position and velocity targets in local NED frame: True
+   Supports set position + velocity targets in global scaled integers: True
+   Supports terrain protocol / data handling: True
+   Supports direct actuator control: False
+   Supports the flight termination command: True
+   Supports mission_float message type: True
+   Supports onboard compass calibration: False
+ Global Location: LocationGlobal:lat=-35.363261,lon=149.1652299,alt=None
+ Global Location (relative altitude): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=0.0
+ Local Location: LocationLocal:north=None,east=None,down=None
+ Attitude: Attitude:pitch=0.0004784972989,yaw=-0.121483288705,roll=0.000102665529994
+ Velocity: [0.0, 0.0, 0.0]
+ GPS: GPSInfo:fix=3,num_sat=10
+ Gimbal status: Gimbal: pitch=None, roll=None, yaw=None
+ Battery: Battery:voltage=12.587,current=0.0,level=100
+ EKF OK?: False
+ Last Heartbeat: 0.874526531999
+ Rangefinder: Rangefinder: distance=None, voltage=None
+ Rangefinder distance: None
+ Rangefinder voltage: None
+ Heading: 353
+ Is Armable?: False
+ System status: STANDBY
+ Groundspeed: 0.0
+ Airspeed: 0.0
+ Mode: STABILIZE
+ Armed: False
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+
+ Home location: LocationGlobal:lat=-35.3632621765,lon=149.165237427,alt=583.989990234
+
+Set new home location
+ New Home Location (from attribute - altitude should be 222): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=222.0
+ New Home Location (from vehicle - altitude should be 222): LocationGlobal:lat=-35.3632621765,lon=149.165237427,alt=222.0
+
+Set Vehicle.mode = GUIDED (currently: STABILIZE)
+ Waiting for mode change ...
+
+Add `attitude` attribute callback/observer on `vehicle`
+ Wait 2s so callback invoked before observer removed
+ CALLBACK: Attitude changed to Attitude:pitch=-0.0029708922375,yaw=-0.180420786142,roll=-0.010924433358
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00316020636819,yaw=-0.189078181982,roll=-0.0113998549059
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00330884661525,yaw=-0.197484821081,roll=-0.0117288138717
+ CALLBACK: Attitude changed to Attitude:pitch=-0.0034098168835,yaw=-0.205704823136,roll=-0.0118960831314
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00344758853316,yaw=-0.2137260288,roll=-0.0119325332344
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00345837348141,yaw=-0.221548482776,roll=-0.0118409795687
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00340225594118,yaw=-0.229247257113,roll=-0.0116043770686
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00336262001656,yaw=-0.236631140113,roll=-0.0113395741209
+ Remove Vehicle.attitude observer
+
+Add `mode` attribute callback/observer using decorator
+ Set mode=STABILIZE (currently: GUIDED) and wait for callback
+ Wait 2s so c at: 2018-05-10 21:50:00
