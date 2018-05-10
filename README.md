@@ -10,7 +10,7 @@ This is a 4th semester project from 4 IT engineering students
 6. Edit wpa_supplicant.conf with the changes from the below guide "Wifi guide" to make it connect to wifi after initial setup.
 7. Insert SD-card into RPi and power it up.
 
-* NOTE: Username "apsync" and password "apsync".
+* NOTE: Username "pi" and password "raspberry". *
 
 ## Commmands to run after installing Raspbian
 1. sudo apt-get update (takes up to 5 minutes)
