@@ -65,7 +65,7 @@ wpa-ssid "SDU-GUEST"
 
 </details>
 
-<details><summary><b>Install NPM, Node and Node-JS</b></summary>
+<details><summary><b>Install NPM, Node, Node-JS, and Python</b></summary>
 In order for the project to be able to run, we need Node-JS. Run these commands to install it.
     
 ```
@@ -73,6 +73,16 @@ sudo apt-get install npm
 sudo apt-get install node
 sudo apt-get install nodejs
 sudo npm install -g express
+
+For npm in node.js please install:
+npm install fs
+npm install events
+npm install bodyparser
+npm install child_process
+npm install path
+
+For python:
+pip install dronekit
 ```
 </details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
