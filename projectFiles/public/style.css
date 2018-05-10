@@ -13,6 +13,7 @@ header {
     text-align: center;
 }
 
+/*Specific for UserCommands input*/
 #UserCommands {
     width: 300px;
     height: 300px;
@@ -31,6 +32,7 @@ header {
     color: white;
 }
 
+/*Specific for DrroneStatus input*/
 #DroneStatus {
     width: 300px;
     height: 300px;
