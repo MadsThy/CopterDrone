@@ -7,6 +7,7 @@ print("Output from python: " + sys.argv[1])
 #Connect to the Drone with an IP-adress and a port
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
 
+#This is the method which takes the command from the HTML page. The command is then taken through some if else statements to check if the command is supported.
 def arm_and_takeoff(aTargetAltitude){
     """
     Arms vehicle and fly to aTargetAltitude.
