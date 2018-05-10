@@ -3,7 +3,7 @@ import sys
 from dronekit import connect
 
 #sys.argv is the parameter from node.js. This parameter is the input on the HTML page, i.e. the command which is sent to the Drone
-print("Output from python: " + sys.argv[1] + sys.argv[2])
+print("Drone command output from python: " + sys.argv[1] + " " + sys.argv[2])
 
 #Connect to the Drone with an IP-adress and a port
 vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)

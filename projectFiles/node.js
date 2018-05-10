@@ -30,7 +30,7 @@ app.post('/command',function(req,res){
   var usercommandValue=req.body.commandValue;
   
   //Print to console
-  console.log("Command: " + usercommand);
+  console.log("Command: " + usercommand + " with value: " + usercommandValue + " has been sent to the drone");
 
   //Create eventhandler
   var eventEmitter = new events.EventEmitter();
