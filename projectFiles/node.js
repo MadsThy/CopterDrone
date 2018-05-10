@@ -22,7 +22,7 @@ app.get('/',function(req,res){
 });
 
 //--------------------------------------------------
-//AJAX call from /command
+//AJAX call from /command. This sends a command to the drone by calling the scripts.py Python script. This also logs the command into a textfile stored locally.
 app.post('/command',function(req,res){
 
   //Get HTML element value
@@ -61,7 +61,7 @@ app.post('/command',function(req,res){
 });
 
 //--------------------------------------------------
-//AJAX call from /dronestatus
+//AJAX call from /dronestatus. This reads the status of the Drone from the droneinfo.py Python script, and returns the value inside the HTML dronestatus textarea
 app.post('/dronestatus',function(req,res){
   //Call python script and get a return value from the "data" parameter
   var process = spawn('python',["droneinfo.py"] );
