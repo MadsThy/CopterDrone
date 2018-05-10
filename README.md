@@ -23,7 +23,7 @@ NOTE: Username "pi" and password "raspberry".
 1. sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 network={
-  ssid="Drone Network"
+  ssid="drone"
   psk="12345678"
   priority=1
 }
