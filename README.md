@@ -73,6 +73,12 @@ sudo apt-get install npm
 sudo apt-get install node
 sudo apt-get install nodejs
 sudo npm install -g express
+
+fs
+events
+bodyparser
+child_process
+path
 ```
 </details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
