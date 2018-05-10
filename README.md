@@ -72,6 +72,7 @@ In order for the project to be able to run, we need Node-JS. Run these commands 
 sudo apt-get install npm
 sudo apt-get install node
 sudo apt-get install nodejs
+npm install express
 ```
 </details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
