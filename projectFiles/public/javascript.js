@@ -1,4 +1,4 @@
-function clear(){
+function commandClear(){
     document.getElementById('commandValue').value="";
     document.getElementById('command').value="";
 };
