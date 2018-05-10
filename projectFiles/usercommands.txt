@@ -1,0 +1,13 @@
+Command: iu has been sent to the drone on: 2018-05-09 22:39:10
+Command: qweqwe has been sent to the drone on: 2018-05-10 05:11:23
+Command: dqwd has been sent to the drone on: 2018-05-10 05:28:26
+Command: 300 has been sent to the drone on: 2018-05-10 05:34:35
+Command: 300 has been sent to the drone on: 2018-05-10 05:35:29
+Command: 300 has been sent to the drone on: 2018-05-10 05:35:34
+Command: 300 has been sent to the drone on: 2018-05-10 05:35:34
+Command: 300 has been sent to the drone on: 2018-05-10 05:35:34
+Command: qweqwe has been sent to the drone on: 2018-05-10 05:35:53
+Command: qweqwe has been sent to the drone on: 2018-05-10 05:36:14
+Command: qweqwe has been sent to the drone on: 2018-05-10 05:37:00
+Command:  has been sent to the drone on: 2018-05-10 05:37:02
+Command: qweqwe has been sent to the drone on: 2018-05-10 05:40:30

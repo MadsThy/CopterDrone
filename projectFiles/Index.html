@@ -1,0 +1,66 @@
+﻿<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drone Control</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+<header>SDU Drone</header>
+
+<!--For sending command and saving to log. This AJAX request calls the nodejs 
+function with /command-->
+<script>
+    $(document).ready(function () {
+        var usertext;
+        $("#submit").click(function () {
+            usertext = $("#command").val();
+            $.post("http://localhost:3000/command", { command: usertext }, function (data) {
+            });
+        });
+    });
+</script>
+
+<!--For reading command log. This AJAX request calls the nodejs 
+function with /userlog-->
+<script>
+    $(document).ready(function () {
+        $("#showUserCommandsLog").click(function () {
+            $.post("http://localhost:3000/userlog", function (data) {
+                $("#UserCommands").val(data);
+            });
+        });
+    });
+</script>
+</head>
+
+<body>
+    <!--For sending command and appending to log-->
+    <center>
+        <label>Command</label>
+        <br>
+        <input type="text" id="command" name="manualCommand">
+        <br>
+        <input type="submit" id="submit" name="submitManualCommand" value="Send Command">
+        <br>
+    </center>
+
+    <!--For reading command log-->
+    <center>
+        <input type="submit" value="Get user commands log" id="showUserCommandsLog" />
+        <br>
+        <textarea id="UserCommands"></textarea>
+    </center>
+
+    <!--The Button and TextArea below are not implemented yet.-->
+    <!--For reading Drone status-->
+    <input type="submit" value="Get Drone Status" id="showDroneStatus" />
+    <textarea id="droneStatus"></textarea>
+
+    <!--Calls JavaScript at the end after the CSHTML and CSS have been loaded.-->
+    <footer>
+        <script src="javascript.js"></script>
+    </footer>
+</body>
+
+</html>
