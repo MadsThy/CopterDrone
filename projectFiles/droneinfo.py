@@ -1,5 +1,5 @@
 from __future__ import print_function
-#To be able to use the python script, dronekit must be installed. Dronekit can be installed by typing "pip install dronekit" in the terminal
+#To be able to use the python script, dronekit_sitl must be installed. Dronekit_sitl can be installed by typing "pip install dronekit_sitl" in the terminal
 from dronekit import connect, VehicleMode
 import time
 
