@@ -70,7 +70,7 @@ app.post('/userlog',function(req,res){
 });
 
 //--------------------------------------------------
-//Listen on port 3000
+//Listen on port 3000. This also allows to connect to the device hosting the node.js server, if both devices are on the same network
 app.listen(3000, '0.0.0.0', function() {
   console.log('Listening to port:  ' + 3000);
 });
