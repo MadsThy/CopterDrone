@@ -64,7 +64,7 @@ app.post('/command',function(req,res){
 //AJAX call from /dronestatus
 app.post('/dronestatus',function(req,res){
   //Call python script and get a return value from the "data" parameter
-  var process = spawn('python',["droneinfo.py", usercommand, usercommandValue] );
+  var process = spawn('python',["droneinfo.py"] );
     process.stdout.on('data', function(data) {
         console.log(data.toString());
         res.send(data);
