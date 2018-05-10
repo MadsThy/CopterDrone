@@ -12,7 +12,7 @@ def arm_and_takeoff(aTargetAltitude){
     """
     Arms vehicle and fly to aTargetAltitude.
     """
-
+    #If command is fly up
     if(sys.argv[1] == "flyup"){
         print "Basic pre-arm checks"
         # Don't try to arm until autopilot is ready
