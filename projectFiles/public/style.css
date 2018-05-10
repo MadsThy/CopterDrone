@@ -1,8 +1,10 @@
+/*Applied to all bodies*/
 body {
     background-image: url(http://washingtonuas.com/wp-content/uploads/2016/07/635814764285923532-AP-DRONES-AGRICULTURE-75200594.jpg);
     background-size: cover;
 }
 
+/*Applied to all headers*/
 header {
     color: white;
     font-family: 'Maven Pro', sans-serif;
@@ -47,6 +49,7 @@ header {
     color: white;
 }
 
+/*Applied to all submits*/
 input[type=submit] {
     width: 260px;
     height: 35px;
@@ -62,6 +65,7 @@ input[type=submit] {
     color: white;
 }
 
+/*Applied to all text inputs*/
 input[type=text] {
     width: 260px;
     height: 35px;
@@ -77,6 +81,7 @@ input[type=text] {
     color: white;
 }
 
+/*Applied to all labels*/
 label {
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;
