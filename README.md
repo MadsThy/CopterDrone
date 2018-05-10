@@ -75,11 +75,11 @@ sudo apt-get install nodejs
 sudo npm install -g express
 
 For npm in node.js please install:
-fs
-events
-bodyparser
-child_process
-path
+npm install fs
+npm install events
+npm install bodyparser
+npm install child_process
+npm install path
 
 For python:
 pip install dronekit
