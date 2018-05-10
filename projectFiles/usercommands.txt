@@ -5,3 +5,4 @@ Command: qwe with value: 123 has been sent to the drone on: 2018-05-10 19:29:35
 Command: asdsa with value: 12312 has been sent to the drone on: 2018-05-10 19:36:18
 Command: flyup with value: 20 has been sent to the drone on: 2018-05-10 19:37:42
 Command: qwe with value: 123 has been sent to the drone on: 2018-05-10 19:38:45
+Command: flyup with value: 10 has been sent to the drone on: 2018-05-10 19:40:41
