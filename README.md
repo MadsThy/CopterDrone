@@ -74,11 +74,15 @@ sudo apt-get install node
 sudo apt-get install nodejs
 sudo npm install -g express
 
+For npm in node.js please install:
 fs
 events
 bodyparser
 child_process
 path
+
+For python:
+pip install dronekit
 ```
 </details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
