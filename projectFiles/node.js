@@ -27,6 +27,7 @@ app.post('/command',function(req,res){
 
   //Get HTML element value
   var usercommand=req.body.command;
+  var usercommandValue=req.body.commandValue;
   
   //Print to console
   console.log("Command: " + usercommand);
@@ -36,7 +37,7 @@ app.post('/command',function(req,res){
   
   //Append time and command to a file
   var myEventHandler = function () {
-    fs.appendFile('usercommands.txt', "Command: " + usercommand 
+    fs.appendFile('usercommands.txt', "Command: " + usercommand + " with value: " + usercommandValue
     + " has been sent to the drone on: " + new Date().toISOString().
     replace(/T/, ' '). // replace T with a space
     replace(/\..+/, '')  + "\r\n", function (err) {
@@ -52,7 +53,7 @@ app.post('/command',function(req,res){
   eventEmitter.emit('savefile');  
 
   //Call python script
-  var process = spawn('python',["scripts.py", usercommand] );
+  var process = spawn('python',["scripts.py", usercommand, usercommandValue] );
     process.stdout.on('data', function(data) {
         console.log(data.toString());
     });

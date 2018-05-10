@@ -13,9 +13,11 @@ function with /command-->
 <script>
     $(document).ready(function () {
         var usertext;
+        var userValue;
         $("#submit").click(function () {
             usertext = $("#command").val();
-            $.post("http://localhost:3000/command", { command: usertext }, function (data) {
+            userValue = $("#commandValue").val();
+            $.post("http://localhost:3000/command", { command: usertext, commandValue: userValue }, function (data) {
             });
         });
     });
@@ -40,6 +42,8 @@ function with /userlog-->
         <label>Command</label>
         <br>
         <input type="text" id="command" name="manualCommand">
+        <br>
+        <input type="text" id="commandValue" name="commandValue">
         <br>
         <input type="submit" id="submit" name="submitManualCommand" value="Send Command">
         <br>
