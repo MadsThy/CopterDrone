@@ -83,6 +83,7 @@ npm install path
 
 For python:
 pip install dronekit
+pip install dronekit_sitl
 ```
 </details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
