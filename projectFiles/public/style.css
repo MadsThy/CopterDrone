@@ -1,6 +1,6 @@
 /*Applied to all bodies*/
 body {
-    background-image: url(http://washingtonuas.com/wp-content/uploads/2016/07/635814764285923532-AP-DRONES-AGRICULTURE-75200594.jpg);
+    background-image: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/drone-background-6015.jpg);
     background-size: 100% 100%;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -52,7 +52,7 @@ header {
 #UserCommands {
     width: 300px;
     height: 300px;
-    background: rgb(33, 38, 39);
+    background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
     border-radius: 3px;
     font-family: 'Maven Pro', sans-serif;
@@ -69,7 +69,7 @@ header {
 #DroneStatus {
     width: 300px;
     height: 300px;
-    background: rgb(33, 38, 39);
+    background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
     border-radius: 3px;
     font-family: 'Maven Pro', sans-serif;
@@ -138,7 +138,7 @@ label {
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: white;
+    color: black;
 }
 
 #commandloglabel {
@@ -149,5 +149,5 @@ label {
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: white;
+    color: black;
 }
