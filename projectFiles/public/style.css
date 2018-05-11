@@ -67,6 +67,14 @@ input[type=submit] {
     color: white;
 }
 
+/*Effects for submit buttons*/
+input[type=submit]:hover {background-color: #707070}
+input[type=submit]:active {
+    background-color: #707070;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
 /*Applied to all text inputs*/
 input[type=text] {
     width: 260px;
@@ -90,4 +98,3 @@ label {
     font-weight: 600;
     color: white;
 }
-
