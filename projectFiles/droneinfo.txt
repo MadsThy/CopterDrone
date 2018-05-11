@@ -1555,3 +1555,739 @@ Reset vehicle attributes/parameters and exit
 Close vehicle object
 Completed
  at: 2018-05-10 22:01:40
+Drone status
+Starting copter simulator (SITL)
+SITL already Downloaded and Extracted.
+Ready to boot.
+
+Connecting to vehicle on: tcp:127.0.0.1:5760
+
+Get all vehicle attribute values:
+ Autopilot Firmware version: APM:Copter-3.3.0
+   Major version number: 3
+   Minor version number: 3
+   Patch version number: 0
+   Release type: rc
+   Release version: 0
+   Stable release?: True
+ Autopilot capabilities
+   Supports MISSION_FLOAT message type: True
+   Supports PARAM_FLOAT message type: True
+   Supports MISSION_INT message type: False
+   Supports COMMAND_INT message type: False
+   Supports PARAM_UNION message type: False
+   Supports ftp for file transfers: False
+   Supports commanding attitude offboard: False
+   Supports commanding position and velocity targets in local NED frame: True
+   Supports set position + velocity targets in global scaled integers: True
+   Supports terrain protocol / data handling: True
+   Supports direct actuator control: False
+   Supports the flight termination command: True
+   Supports mission_float message type: True
+   Supports onboard compass calibration: False
+ Global Location: LocationGlobal:lat=-35.363261,lon=149.1652299,alt=None
+ Global Location (relative altitude): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=0.0
+ Local Location: LocationLocal:north=None,east=None,down=None
+ Attitude: Attitude:pitch=0.000478538597235,yaw=-0.121483154595,roll=0.000102379664895
+ Velocity: [0.0, 0.0, 0.0]
+ GPS: GPSInfo:fix=3,num_sat=10
+ Gimbal status: Gimbal: pitch=None, roll=None, yaw=None
+ Battery: Battery:voltage=12.587,current=0.0,level=100
+ EKF OK?: False
+ Last Heartbeat: 0.877230474
+ Rangefinder: Rangefinder: distance=None, voltage=None
+ Rangefinder distance: None
+ Rangefinder voltage: None
+ Heading: 353
+ Is Armable?: False
+ System status: STANDBY
+ Groundspeed: 0.0
+ Airspeed: 0.0
+ Mode: STABILIZE
+ Armed: False
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+ Waiting for home location ...
+
+ Home location: LocationGlobal:lat=-35.3632621765,lon=149.165237427,alt=583.989990234
+
+Set new home location
+ New Home Location (from attribute - altitude should be 222): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=222.0
+ New Home Location (from vehicle - altitude should be 222): LocationGlobal:lat=-35.3632621765,lon=149.165237427,alt=222.0
+
+Set Vehicle.mode = GUIDED (currently: STABILIZE)
+ Waiting for mode change ...
+
+Add `attitude` attribute callback/observer on `vehicle`
+ Wait 2s so callback invoked before observer removed
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00297242752276,yaw=-0.180421620607,roll=-0.0109260464087
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00316182221286,yaw=-0.189079225063,roll=-0.0114015303552
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00331053743139,yaw=-0.197485804558,roll=-0.0117305442691
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00341158406809,yaw=-0.205705791712,roll=-0.011897880584
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00344941625372,yaw=-0.21372692287,roll=-0.0119343772531
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00346025219187,yaw=-0.221549332142,roll=-0.0118428403512
+ CALLBACK: Attitude changed to Attitude:pitch=-0.00340417865664,yaw=-0.22924798727,roll=-0.0116062518209
+ CALLBACK: Attitude changed to Attitude:pitch=-0.003364573,yaw=-0.236631929874,roll=-0.0113414600492
+ Remove Vehicle.attitude observer
+
+Add `mode` attribute callback/observer using decorator
+ Set mode=STABILIZE (currently: GUIDED) and wait for callback
+ Wait 2s so callback invoked before moving to next example
+ CALLBACK: Mode chan at: 2018-05-11 06:29:04
+ged to VehicleMode:STABILIZE
+
+ Attempt to remove observer added with `on_attribute` decorator (should fail)
+ Exception: Cannot remove observer added using decorator
+
+Add attribute callback detecting ANY attribute change
+ Wait 1s so callback invoked before observer removed
+ CALLBACK: (last_heartbeat): 0.719841996
+ CALLBACK: (last_heartbeat): 0.77108029
+ CALLBACK: (battery): Battery:voltage=12.587,current=0.0,level=100
+ CALLBACK: (gps_0): GPSInfo:fix=3,num_sat=10
+ CALLBACK: (location.global_relative_frame): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=362.04
+ CALLBACK: (location.global_frame): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=584.04
+ CALLBACK: (location): <dronekit.Locations object at 0x7ffb2c304410>
+ CALLBACK: (velocity): [0.0, -0.19, 0.03]
+ CALLBACK: (channels): {'1': 1500, '3': 1000, '2': 1500, '5': 1800, '4': 1500, '7': 1000, '6': 1000, '8': 1800}
+ CALLBACK: (attitude): Attitude:pitch=-0.00198194431141,yaw=-0.297849595547,roll=-0.0065979170613
+ CALLBACK: (heading): 342
+ CALLBACK: (airspeed): 0.0
+ CALLBACK: (groundspeed): 0.0
+ CALLBACK: (last_heartbeat): 0.826389729
+ CALLBACK: (last_heartbeat): 0.876990615
+ CALLBACK: (last_heartbeat): 0.927581347
+ CALLBACK: (last_heartbeat): 0.050512638
+ CALLBACK: (last_heartbeat): 0.101087704
+ CALLBACK: (battery): Battery:voltage=12.587,current=0.0,level=100
+ CALLBACK: (gps_0): GPSInfo:fix=3,num_sat=10
+ CALLBACK: (location.global_relative_frame): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=362.04
+ CALLBACK: (location.global_frame): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=584.04
+ CALLBACK: (location): <dronekit.Locations object at 0x7ffb2c304410>
+ CALLBACK: (velocity): [0.0, -0.18, 0.02]
+ CALLBACK: (channels): {'1': 1500, '3': 1000, '2': 1500, '5': 1800, '4': 1500, '7': 1000, '6': 1000, '8': 1800}
+ CALLBACK: (attitude): Attitude:pitch=-0.00181471998803,yaw=-0.302716225386,roll=-0.00609087245539
+ CALLBACK: (heading): 342
+ CALLBACK: (airspeed): 0.0
+ CALLBACK: (groundspeed): 0.0
+ CALLBACK: (last_heartbeat): 0.156169287
+ CALLBACK: (last_heartbeat): 0.206927578
+ CALLBACK: (last_heartbeat): 0.257751009
+ CALLBACK: (last_heartbeat): 0.308538282
+ CALLBACK: (battery): Battery:voltage=12.587,current=0.0,level=100
+ CALLBACK: (gps_0): GPSInfo:fix=3,num_sat=10
+ CALLBACK: (location.global_relative_frame): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=362.05
+ CALLBACK: (location.global_frame): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=584.05
+ CALLBACK: (location): <dronekit.Locations object at 0x7ffb2c304410>
+ CALLBACK: (velocity): [0.0, -0.17, 0.02]
+ CALLBACK: (channels): {'1': 1500, '3': 1000, '2': 1500, '5': 1800, '4': 1500, '7': 1000, '6': 1000, '8': 1800}
+ CALLBACK: (attitude): Attitude:pitch=-0.00165652879514,yaw=-0.307361364365,roll=-0.00558558525518
+ CALLBACK: (heading): 342
+ CALLBACK: (airspeed): 0.0
+ CALLBACK: (groundspeed): 0.0
+ CALLBACK: (last_heartbeat): 0.36395246
+ CALLBACK: (last_heartbeat): 0.414978894
+ CALLBACK: (last_heartbeat): 0.465934322
+ CALLBACK: (last_heartbeat): 0.516940429
+ CALLBACK: (last_heartbeat): 0.567453498
+ CALLBACK: (battery): Battery:voltage=12.587,current=0.0,level=100
+ CALLBACK: (gps_0): GPSInfo:fix=3,num_sat=10
+ CALLBACK: (location.global_relative_frame): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=362.05
+ CALLBACK: (location.global_frame): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=584.05
+ CALLBACK: (location): <dronekit.Locations object at 0x7ffb2c304410>
+ CALLBACK: (velocity): [0.0, -0.16, 0.02]
+ CALLBACK: (channels): {'1': 1500, '3': 1000, '2': 1500, '5': 1800, '4': 1500, '7': 1000, '6': 1000, '8': 1800}
+ CALLBACK: (attitude): Attitude:pitch=-0.00149787298869,yaw=-0.311801880598,roll=-0.00508506270126
+ CALLBACK: (heading): 342
+ CALLBACK: (airspeed): 0.0
+ CALLBACK: (groundspeed): 0.0
+ CALLBACK: (last_heartbeat): 0.619717
+ CALLBACK: (last_heartbeat): 0.670365428
+ CALLBACK: (last_heartbeat): 0.720642763
+ CALLBACK: (last_heartbeat): 0.771267833
+ CALLBACK: (battery): Battery:voltage=12.587,current=0.0,level=100
+ CALLBACK: (gps_0): GPSInfo:fix=3,num_sat=10
+ CALLBACK: (locat at: 2018-05-11 06:29:07
+ion.global_relative_frame): LocationGlobalRelative:lat=-35.363261,lon=149.1652299,alt=362.04
+ CALLBACK: (location.global_frame): LocationGlobal:lat=-35.363261,lon=149.1652299,alt=584.04
+ CALLBACK: (location): <dronekit.Locations object at 0x7ffb2c304410>
+ CALLBACK: (velocity): [0.0, -0.14, 0.02]
+ CALLBACK: (channels): {'1': 1500, '3': 1000, '2': 1500, '5': 1800, '4': 1500, '7': 1000, '6': 1000, '8': 1800}
+ CALLBACK: (attitude): Attitude:pitch=-0.00132913899142,yaw=-0.316103428602,roll=-0.0045709325932
+ CALLBACK: (heading): 341
+ CALLBACK: (airspeed): 0.0
+ CALLBACK: (groundspeed): 0.0
+ Remove Vehicle attribute observer
+
+Read and write parameters
+ Read vehicle param 'THR_MIN': 130.0
+ Write vehicle param 'THR_MIN' : 10
+ Read new value of param 'THR_MIN': 10.0
+
+Print all parameters (iterate `vehicle.parameters`):
+ Key:RC7_REV Value:1.0
+ Key:GPS_INJECT_TO Value:127.0
+ Key:FLTMODE1 Value:7.0
+ Key:FLTMODE3 Value:6.0
+ Key:FLTMODE2 Value:9.0
+ Key:FLTMODE5 Value:5.0
+ Key:FLTMODE4 Value:3.0
+ Key:FLTMODE6 Value:0.0
+ Key:RC5_REV Value:1.0
+ Key:EKF_GLITCH_RAD Value:25.0
+ Key:EKF_VEL_GATE Value:5.0
+ Key:CH9_OPT Value:0.0
+ Key:SIM_WIND_TURB Value:0.0
+ Key:SIM_ARSP_FAIL Value:0.0
+ Key:SIMPLE Value:0.0
+ Key:RC2_MAX Value:2000.0
+ Key:MNT_JSTICK_SPD Value:0.0
+ Key:ACRO_EXPO Value:0.300000011921
+ Key:MNT_ANGMIN_ROL Value:-4500.0
+ Key:SIM_BATT_VOLTAGE Value:12.6000003815
+ Key:MNT_TYPE Value:0.0
+ Key:EKF_HGT_GATE Value:10.0
+ Key:COMPASS_DEV_ID3 Value:0.0
+ Key:COMPASS_DEV_ID2 Value:0.0
+ Key:RNGFND2_SETTLE Value:0.0
+ Key:RNGFND_PWRRNG Value:0.0
+ Key:RC2_REV Value:1.0
+ Key:THR_MIN Value:10.0
+ Key:BATT_AMP_OFFSET Value:0.0
+ Key:SIM_DRIFT_TIME Value:5.0
+ Key:RNGFND2_FUNCTION Value:0.0
+ Key:RNGFND_MIN_CM Value:20.0
+ Key:THR_MID Value:500.0
+ Key:EKF_WIND_PNOISE Value:0.10000000149
+ Key:RNGFND_SETTLE Value:0.0
+ Key:ACRO_RP_P Value:4.5
+ Key:SIM_GPS_HZ Value:5.0
+ Key:SR3_POSITION Value:0.0
+ Key:WPNAV_LOIT_SPEED Value:500.0
+ Key:RC3_MIN Value:1000.0
+ Key:RALLY_TOTAL Value:0.0
+ Key:SIM_GPS_DELAY Value:1.0
+ Key:STB_PIT_P Value:4.5
+ Key:MOT_THST_BAT_MIN Value:0.0
+ Key:RC3_REV Value:1.0
+ Key:FENCE_ACTION Value:1.0
+ Key:EKF_GYRO_PNOISE Value:0.0149999996647
+ Key:RC4_DZ Value:40.0
+ Key:SIM_MAG_ERROR Value:0.0
+ Key:LAND_REPOSITION Value:1.0
+ Key:CH11_OPT Value:0.0
+ Key:GPS_MIN_DGPS Value:100.0
+ Key:WPNAV_LOIT_MAXA Value:250.0
+ Key:RNGFND_STOP_PIN Value:-1.0
+ Key:CHUTE_SERVO_ON Value:1300.0
+ Key:RNGFND_TYPE Value:0.0
+ Key:GCS_PID_MASK Value:0.0
+ Key:RC6_REV Value:1.0
+ Key:RTL_ALT Value:1500.0
+ Key:SERIAL4_PROTOCOL Value:5.0
+ Key:RTL_LOIT_TIME Value:5000.0
+ Key:RC4_MAX Value:2000.0
+ Key:SERIAL2_BAUD Value:57.0
+ Key:EKF_GBIAS_PNOISE Value:9.99999997475e-07
+ Key:FS_BATT_MAH Value:0.0
+ Key:GPS_GNSS_MODE Value:0.0
+ Key:RSSI_RANGE Value:5.0
+ Key:SERIAL1_BAUD Value:57.0
+ Key:RTL_CLIMB_MIN Value:0.0
+ Key:RC3_TRIM Value:1500.0
+ Key:RNGFND_MAX_CM Value:700.0
+ Key:SIM_FLOW_RATE Value:10.0
+ Key:FS_EKF_ACTION Value:1.0
+ Key:MOT_THST_EXPO Value:0.649999976158
+ Key:FLOW_ENABLE Value:0.0
+ Key:RELAY_PIN Value:13.0
+ Key:TERRAIN_ENABLE Value:1.0
+ Key:EKF_MAGB_PNOISE Value:0.000300000014249
+ Key:BATT_VOLT_PIN Value:13.0
+ Key:MNT_ANGMIN_PAN Value:-4500.0
+ Key:SR0_RAW_CTRL Value:4.0
+ Key:RC5_DZ Value:0.0
+ Key:EKF_ACC_PNOISE Value:0.25
+ Key:FENCE_RADIUS Value:150.0
+ Key:COMPASS_OFS3_Y Value:0.0
+ Key:COMPASS_OFS3_X Value:0.0
+ Key:SUPER_SIMPLE Value:0.0
+ Key:COMPASS_OFS3_Z Value:0.0
+ Key:SR3_RAW_CTRL Value:0.0
+ Key:SIM_GYR_RND Value:0.0
+ Key:SYSID_SW_MREV Value:120.0
+ Key:COMPASS_OFS2_X Value:5.0
+ Key:COMPASS_OFS2_Y Value:13.0
+ Key:COMPASS_OFS2_Z Value:-18.0
+ Key:SIM_RC_FAIL Value:0.0
+ Key:GND_ABS_PRESS Value:94503.8046875
+ Key:RC1_MAX Value:2000.0
+ Key:WPNAV_ACCEL Value:100.0
+ Key:RC7_MIN Value:1000.0
+ Key:GPS_NAVFILTER Value:8.0
+ Key:FENCE_MARGIN Value:2.0
+ Key:ACRO_BAL_ROLL Value:1.0
+ Key:AHRS_TRIM_Z Value:0.0
+ Key:AHRS_TRIM_Y Value:0.0
+ Key:AHRS_TRIM_X Value:0.0
+ Key:CHUTE_TYPE Value:0.0
+ Key:RC10_MAX Value:1900.0
+ Key:COMPASS_DEV_ID Value:0.0
+ Key:RNGFND2_MAX_CM Value:700.0
+ Key:GND_TEMP Value:26.0066223145
+ Key:RC7_TRIM Value:1500.0
+ Key:RC8_MIN Value:1000.0
+ Key:MNT_STAB_TILT Valu at: 2018-05-11 06:29:07
+e:0.0
+ Key:BATT2_CURR_PIN Value:12.0
+ Key:TUNE Value:0.0
+ Key:FENCE_ALT_MAX Value:100.0
+ Key:RC10_FUNCTION Value:0.0
+ Key:ACCEL_Z_P Value:0.5
+ Key:ACCEL_Z_I Value:1.0
+ Key:INS_ACC3OFFS_X Value:0.0
+ Key:INS_ACC3OFFS_Y Value:0.0
+ Key:INS_ACC3OFFS_Z Value:0.0
+ Key:ACCEL_Z_D Value:0.0
+ Key:TERRAIN_SPACING Value:100.0
+ Key:EKF_FLOW_DELAY Value:10.0
+ Key:SERIAL2_PROTOCOL Value:1.0
+ Key:TUNE_HIGH Value:1000.0
+ Key:SIM_MAG_RND Value:0.0
+ Key:SIM_WIND_DELAY Value:0.0
+ Key:EKF_VELNE_NOISE Value:0.5
+ Key:MNT_OFF_GYRO_Z Value:0.0
+ Key:MNT_OFF_GYRO_X Value:0.0
+ Key:MNT_OFF_GYRO_Y Value:0.0
+ Key:PILOT_ACCEL_Z Value:250.0
+ Key:SR1_EXT_STAT Value:0.0
+ Key:RC8_FUNCTION Value:0.0
+ Key:INS_ACCSCAL_X Value:1.00100004673
+ Key:CHUTE_SERVO_OFF Value:1100.0
+ Key:PILOT_THR_FILT Value:0.0
+ Key:STB_RLL_P Value:4.5
+ Key:CHUTE_ENABLED Value:0.0
+ Key:SR0_RAW_SENS Value:4.0
+ Key:EKF_MAGE_PNOISE Value:0.000300000014249
+ Key:WP_YAW_BEHAVIOR Value:2.0
+ Key:SYSID_THISMAV Value:1.0
+ Key:AHRS_ORIENTATION Value:0.0
+ Key:FS_GCS_ENABLE Value:1.0
+ Key:SIM_SONAR_RND Value:0.0
+ Key:RNGFND2_OFFSET Value:0.0
+ Key:CH12_OPT Value:0.0
+ Key:EKF_POS_DELAY Value:220.0
+ Key:EKF_WIND_PSCALE Value:0.5
+ Key:COMPASS_EXTERN2 Value:0.0
+ Key:COMPASS_EXTERN3 Value:0.0
+ Key:RC11_DZ Value:0.0
+ Key:RCMAP_YAW Value:4.0
+ Key:SR0_POSITION Value:4.0
+ Key:SIM_SONAR_SCALE Value:12.1211996078
+ Key:SIM_DRIFT_SPEED Value:0.0500000007451
+ Key:INS_GYRO_FILTER Value:20.0
+ Key:WPNAV_RADIUS Value:200.0
+ Key:ATC_ACCEL_Y_MAX Value:27000.0
+ Key:SR3_RAW_SENS Value:0.0
+ Key:SIM_WIND_SPD Value:0.0
+ Key:MIS_RESTART Value:0.0
+ Key:RC4_TRIM Value:1500.0
+ Key:RATE_PIT_FILT_HZ Value:20.0
+ Key:COMPASS_MOT3_Z Value:0.0
+ Key:COMPASS_MOT3_Y Value:0.0
+ Key:COMPASS_MOT3_X Value:0.0
+ Key:SIM_GPS_GLITCH_Y Value:0.0
+ Key:SIM_GPS_GLITCH_X Value:0.0
+ Key:SIM_GPS_GLITCH_Z Value:0.0
+ Key:RC5_MIN Value:1000.0
+ Key:COMPASS_MOTCT Value:0.0
+ Key:CAM_TRIGG_DIST Value:0.0
+ Key:PSC_ACC_XY_FILT Value:2.0
+ Key:EKF_GND_GRADIENT Value:2.0
+ Key:LGR_SERVO_DEPLOY Value:1750.0
+ Key:ARMING_CHECK Value:0.0
+ Key:RC11_FUNCTION Value:0.0
+ Key:INS_PRODUCT_ID Value:0.0
+ Key:FENCE_ENABLE Value:0.0
+ Key:PHLD_BRAKE_RATE Value:8.0
+ Key:BATT_CAPACITY Value:3300.0
+ Key:MNT_ANGMAX_TIL Value:4500.0
+ Key:RC6_MAX Value:2000.0
+ Key:SR1_RAW_SENS Value:0.0
+ Key:RNGFND_GAIN Value:0.800000011921
+ Key:BATT2_VOLT_PIN Value:13.0
+ Key:GPS_RAW_DATA Value:0.0
+ Key:EKF_FLOW_NOISE Value:0.25
+ Key:SYSID_MYGCS Value:255.0
+ Key:EPM_RELEASE Value:1100.0
+ Key:INS_ACCEL_FILTER Value:20.0
+ Key:EKF_MAX_FLOW Value:2.5
+ Key:EPM_GRAB Value:1900.0
+ Key:BATT_AMP_PERVOLT Value:17.0
+ Key:EKF_MAG_GATE Value:3.0
+ Key:RC1_DZ Value:30.0
+ Key:INS_USE2 Value:1.0
+ Key:INS_USE3 Value:0.0
+ Key:LOG_BITMASK Value:176126.0
+ Key:GPS_MIN_ELEV Value:-100.0
+ Key:CAM_DURATION Value:10.0
+ Key:RNGFND_OFFSET Value:0.0
+ Key:AHRS_GPS_MINSATS Value:6.0
+ Key:VEL_Z_P Value:5.0
+ Key:RC8_REV Value:1.0
+ Key:RC2_TRIM Value:1500.0
+ Key:RC1_TRIM Value:1500.0
+ Key:RELAY_PIN2 Value:-1.0
+ Key:ESC_CALIBRATION Value:0.0
+ Key:RCMAP_PITCH Value:2.0
+ Key:COMPASS_ORIENT3 Value:0.0
+ Key:COMPASS_ORIENT2 Value:0.0
+ Key:ACRO_YAW_P Value:4.5
+ Key:SR1_RAW_CTRL Value:0.0
+ Key:ACRO_TRAINER Value:2.0
+ Key:SR3_RC_CHAN Value:0.0
+ Key:RC11_MAX Value:1900.0
+ Key:EKF_EAS_GATE Value:10.0
+ Key:RC11_TRIM Value:1500.0
+ Key:SIM_MAG_DELAY Value:0.0
+ Key:RALLY_LIMIT_KM Value:0.300000011921
+ Key:EPM_ENABLE Value:0.0
+ Key:WPNAV_LOIT_JERK Value:1000.0
+ Key:EKF_MAG_NOISE Value:0.0500000007451
+ Key:SIM_GPS_DISABLE Value:0.0
+ Key:CH8_OPT Value:0.0
+ Key:RC1_MIN Value:1000.0
+ Key:RSSI_PIN Value:-1.0
+ Key:RC5_FUNCTION Value:0.0
+ Key:COMPASS_LEARN Value:0.0
+ Key:ACRO_BAL_PITCH Value:1.0
+ Key:SR2_RC_CHAN Value:0.0
+ Key:EKF_FALLBACK Value:1.0
+ Key:FS_EKF_THRESH Value:0.800000011921
+ Key:SR1_EXTRA3 Value:0.0
+ Key:SR1_EXTRA2 Value:0.0
+ Key:SR1_EXTRA1 Value:0.0
+ Key:SR3_EXTRA1 Value:0.0
+ Key:SR3_EXTRA3 Value:0.0
+ Key:SR3_EXTRA2 Value:0.0
+ Key:EKF_MAG_CAL Value:1.0
+ Key:RATE_PIT_P Value:0.15000000596
+ Key:MOT_YAW_HEADROOM Value:200.0
+ Key:SIM_ACC2_RND Value:0.0
+ Key:RATE_PIT_D Value:0.00400000018999
+ Key:BATT2_AMP_OFFSET Value:0.0
+ Key:SR0_RC_CHAN Value: at: 2018-05-11 06:29:07
+4.0
+ Key:RATE_YAW_IMAX Value:1000.0
+ Key:RATE_PIT_I Value:0.10000000149
+ Key:RNGFND2_STOP_PIN Value:-1.0
+ Key:RC8_TRIM Value:1500.0
+ Key:INS_ACC2OFFS_Y Value:0.0010000000475
+ Key:ACCEL_Z_IMAX Value:800.0
+ Key:SIM_FLOW_ENABLE Value:0.0
+ Key:SIM_BARO_DISABLE Value:0.0
+ Key:SIM_SERVO_RATE Value:0.0
+ Key:RPM2_TYPE Value:0.0
+ Key:BATT2_AMP_PERVOL Value:17.0
+ Key:RPM2_SCALING Value:1.0
+ Key:SIM_SONAR_GLITCH Value:0.0
+ Key:COMPASS_MOT2_Z Value:0.0
+ Key:COMPASS_MOT2_X Value:0.0
+ Key:COMPASS_MOT2_Y Value:0.0
+ Key:SERIAL1_PROTOCOL Value:1.0
+ Key:ATC_ACCEL_P_MAX Value:110000.0
+ Key:MNT_RC_IN_PAN Value:0.0
+ Key:VEL_XY_IMAX Value:1000.0
+ Key:FRAME Value:0.0
+ Key:MNT_STAB_ROLL Value:0.0
+ Key:EKF_VELD_NOISE Value:0.699999988079
+ Key:MNT_K_RATE Value:5.0
+ Key:RNGFND_SCALING Value:3.0
+ Key:RPM_SCALING Value:1.0
+ Key:SIM_ENGINE_MUL Value:1.0
+ Key:AUTOTUNE_AGGR Value:0.10000000149
+ Key:POS_Z_P Value:1.0
+ Key:SR2_PARAMS Value:0.0
+ Key:EKF_POSNE_NOISE Value:0.5
+ Key:MAG_ENABLE Value:1.0
+ Key:WPNAV_SPEED_DN Value:150.0
+ Key:INS_ACCSCAL_Z Value:1.00100004673
+ Key:INS_ACCSCAL_Y Value:1.00100004673
+ Key:INS_USE Value:1.0
+ Key:MNT_RC_IN_ROLL Value:0.0
+ Key:RATE_PIT_IMAX Value:2000.0
+ Key:MOT_THST_MAX Value:0.949999988079
+ Key:SIM_GPS_TYPE Value:1.0
+ Key:CAM_SERVO_OFF Value:1100.0
+ Key:SERIAL3_PROTOCOL Value:5.0
+ Key:MNT_OFF_ACC_Z Value:0.0
+ Key:MNT_OFF_ACC_Y Value:0.0
+ Key:MNT_OFF_ACC_X Value:0.0
+ Key:SIM_ACC_RND Value:0.0
+ Key:MNT_STAB_PAN Value:0.0
+ Key:FS_BATT_ENABLE Value:0.0
+ Key:EKF_GPS_TYPE Value:0.0
+ Key:RNGFND2_MIN_CM Value:20.0
+ Key:FLOW_FYSCALER Value:0.0
+ Key:RNGFND2_SCALING Value:3.0
+ Key:RC8_MAX Value:2000.0
+ Key:SIM_ACC_BIAS_Z Value:0.0
+ Key:RC7_MAX Value:2000.0
+ Key:SIM_BARO_DRIFT Value:0.0
+ Key:MNT_LEAD_RLL Value:0.0
+ Key:RC_FEEL_RP Value:50.0
+ Key:RELAY_DEFAULT Value:0.0
+ Key:FS_THR_ENABLE Value:1.0
+ Key:RC5_TRIM Value:1500.0
+ Key:SR2_EXT_STAT Value:0.0
+ Key:SR2_RAW_SENS Value:0.0
+ Key:SIM_ACC_BIAS_X Value:0.0
+ Key:SIM_ACC_BIAS_Y Value:0.0
+ Key:EKF_ALT_NOISE Value:1.0
+ Key:AHRS_YAW_P Value:0.20000000298
+ Key:EKF_RNG_GATE Value:5.0
+ Key:SR0_EXT_STAT Value:4.0
+ Key:GPS_SBAS_MODE Value:2.0
+ Key:INS_ACC3SCAL_Z Value:1.0
+ Key:INS_ACC3SCAL_Y Value:1.0
+ Key:INS_ACC3SCAL_X Value:1.0
+ Key:SIM_TERRAIN Value:1.0
+ Key:PILOT_VELZ_MAX Value:250.0
+ Key:RC4_MIN Value:1000.0
+ Key:SIM_BARO_DELAY Value:0.0
+ Key:RC6_MIN Value:1000.0
+ Key:MOT_SPIN_ARMED Value:70.0
+ Key:RC5_MAX Value:2000.0
+ Key:CH7_OPT Value:7.0
+ Key:SIM_GPS_DRIFTALT Value:0.0
+ Key:RATE_RLL_FILT_HZ Value:20.0
+ Key:ANGLE_MAX Value:4500.0
+ Key:RC11_MIN Value:1100.0
+ Key:GND_ALT_OFFSET Value:0.0
+ Key:GPS_SBP_LOGMASK Value:-256.0
+ Key:RC6_FUNCTION Value:0.0
+ Key:INS_GYR3OFFS_Z Value:0.0
+ Key:INS_GYR3OFFS_Y Value:0.0
+ Key:INS_GYR3OFFS_X Value:0.0
+ Key:BATT_VOLT_MULT Value:10.1000003815
+ Key:RNGFND2_PIN Value:-1.0
+ Key:MNT_DEFLT_MODE Value:3.0
+ Key:EKF_VEL_DELAY Value:220.0
+ Key:RC4_REV Value:1.0
+ Key:CIRCLE_RADIUS Value:1000.0
+ Key:MOT_THR_MIX_MAX Value:0.5
+ Key:GPS_HDOP_GOOD Value:140.0
+ Key:SIM_BARO_GLITCH Value:0.0
+ Key:AHRS_GPS_USE Value:1.0
+ Key:ATC_ACCEL_R_MAX Value:110000.0
+ Key:SCHED_DEBUG Value:0.0
+ Key:SR0_PARAMS Value:10.0
+ Key:AHRS_WIND_MAX Value:0.0
+ Key:MNT_ANGMIN_TIL Value:-4500.0
+ Key:MNT_ANGMAX_ROL Value:4500.0
+ Key:SIM_BARO_RND Value:0.0
+ Key:LGR_SERVO_RTRACT Value:1250.0
+ Key:RPM_TYPE Value:0.0
+ Key:WPNAV_ACCEL_Z Value:100.0
+ Key:EKF_ALT_SOURCE Value:1.0
+ Key:MOT_THR_MIX_MIN Value:0.10000000149
+ Key:CH10_OPT Value:0.0
+ Key:INS_ACC2OFFS_X Value:0.0010000000475
+ Key:INS_ACC2OFFS_Z Value:0.0010000000475
+ Key:TUNE_LOW Value:0.0
+ Key:BATT_MONITOR Value:4.0
+ Key:EKF_ABIAS_PNOISE Value:4.99999987369e-05
+ Key:RC7_FUNCTION Value:0.0
+ Key:FLOW_FXSCALER Value:0.0
+ Key:SR2_RAW_CTRL Value:0.0
+ Key:BRD_SERIAL_NUM Value:0.0
+ Key:CAM_SERVO_ON Value:1300.0
+ Key:WPNAV_LOIT_MINA Value:25.0
+ Key:SIM_FLOAT_EXCEPT Value:1.0
+ Key:AHRS_COMP_BETA Value:0.10000000149
+ Key:MOT_CURR_MAX Value:0.0
+ Key:RNGFND_RMETRIC Value:1.0
+ Key:MIS_TOTAL Value:0.0
+ Key:COMPASS_AUTODEC Value:1.0
+ Key:COMPASS_USE Value:1.0
+ Key:ACCEL_Z_FILT_HZ Value:20.0
+ Key:SIM_MAG_OFS_Z Value:-18.0
+ Key:SIM_MAG_OFS_X Value:5. at: 2018-05-11 06:29:07
+0
+ Key:SIM_MAG_OFS_Y Value:13.0
+ Key:BATT2_CAPACITY Value:3300.0
+ Key:RC10_REV Value:1.0
+ Key:RATE_YAW_P Value:0.20000000298
+ Key:RNGFND_GNDCLEAR Value:10.0
+ Key:RATE_YAW_I Value:0.019999999553
+ Key:SERIAL3_BAUD Value:38.0
+ Key:RATE_YAW_D Value:0.0
+ Key:INS_GYR2OFFS_Z Value:0.0
+ Key:INS_GYR2OFFS_X Value:0.0
+ Key:INS_GYR2OFFS_Y Value:0.0
+ Key:COMPASS_MOT_Y Value:0.0
+ Key:COMPASS_MOT_X Value:0.0
+ Key:COMPASS_MOT_Z Value:0.0
+ Key:INS_GYROFFS_Y Value:0.000123246500152
+ Key:INS_GYROFFS_X Value:0.000136457150802
+ Key:INS_GYROFFS_Z Value:8.38439445943e-05
+ Key:RC6_TRIM Value:1500.0
+ Key:COMPASS_EXTERNAL Value:0.0
+ Key:EKF_GLITCH_ACCEL Value:100.0
+ Key:EPM_NEUTRAL Value:1500.0
+ Key:WPNAV_SPEED_UP Value:250.0
+ Key:SYSID_SW_TYPE Value:10.0
+ Key:SIM_ACCEL_FAIL Value:0.0
+ Key:RC2_MIN Value:1000.0
+ Key:COMPASS_USE2 Value:1.0
+ Key:COMPASS_USE3 Value:1.0
+ Key:EKF_EAS_NOISE Value:1.39999997616
+ Key:SR1_RC_CHAN Value:0.0
+ Key:GPS_TYPE2 Value:0.0
+ Key:RNGFND_FUNCTION Value:0.0
+ Key:STB_YAW_P Value:4.5
+ Key:SIM_GPS2_ENABLE Value:0.0
+ Key:EKF_POS_GATE Value:10.0
+ Key:MNT_RETRACT_Y Value:0.0
+ Key:MNT_RETRACT_X Value:0.0
+ Key:MNT_RETRACT_Z Value:0.0
+ Key:SIM_GPS_NUMSATS Value:10.0
+ Key:SR0_EXTRA1 Value:4.0
+ Key:SR0_EXTRA2 Value:4.0
+ Key:SR0_EXTRA3 Value:4.0
+ Key:MNT_OFF_JNT_X Value:0.0
+ Key:MNT_OFF_JNT_Y Value:0.0
+ Key:MNT_OFF_JNT_Z Value:0.0
+ Key:SERIAL0_BAUD Value:115.0
+ Key:AUTOTUNE_AXES Value:7.0
+ Key:SR1_POSITION Value:0.0
+ Key:MNT_NEUTRAL_Y Value:0.0
+ Key:MNT_NEUTRAL_X Value:0.0
+ Key:RELAY_PIN3 Value:-1.0
+ Key:PILOT_THR_BHV Value:0.0
+ Key:RELAY_PIN4 Value:-1.0
+ Key:SIM_MAG_MOT_X Value:0.0
+ Key:SIM_MAG_MOT_Y Value:0.0
+ Key:SIM_MAG_MOT_Z Value:0.0
+ Key:MOT_THST_BAT_MAX Value:0.0
+ Key:RTL_ALT_FINAL Value:0.0
+ Key:FLOW_ORIENT_YAW Value:0.0
+ Key:RC6_DZ Value:0.0
+ Key:RATE_RLL_P Value:0.15000000596
+ Key:RATE_RLL_I Value:0.10000000149
+ Key:RC11_REV Value:1.0
+ Key:AHRS_RP_P Value:0.20000000298
+ Key:SIM_ASPD_RND Value:0.5
+ Key:RATE_RLL_D Value:0.00400000018999
+ Key:PHLD_BRAKE_ANGLE Value:3000.0
+ Key:LAND_SPEED Value:50.0
+ Key:BATT2_VOLT_MULT Value:10.1000003815
+ Key:CAM_TRIGG_TYPE Value:0.0
+ Key:SR3_EXT_STAT Value:0.0
+ Key:RC3_MAX Value:2000.0
+ Key:COMPASS_PRIMARY Value:0.0
+ Key:RNGFND2_RMETRIC Value:1.0
+ Key:MNT_ANGMAX_PAN Value:4500.0
+ Key:RC10_DZ Value:0.0
+ Key:FS_THR_VALUE Value:975.0
+ Key:MNT_NEUTRAL_Z Value:0.0
+ Key:COMPASS_DEC Value:0.0
+ Key:CHUTE_ALT_MIN Value:10.0
+ Key:AUTOTUNE_MIN_D Value:0.00400000018999
+ Key:RNGFND2_TYPE Value:0.0
+ Key:EPM_REGRAB Value:0.0
+ Key:VEL_XY_I Value:0.5
+ Key:COMPASS_OFS_Z Value:-18.0
+ Key:COMPASS_OFS_Y Value:13.0
+ Key:COMPASS_OFS_X Value:5.0
+ Key:POS_XY_P Value:1.0
+ Key:RC10_TRIM Value:1500.0
+ Key:EKF_FLOW_GATE Value:3.0
+ Key:VEL_XY_P Value:1.0
+ Key:SR1_PARAMS Value:0.0
+ Key:MNT_LEAD_PTCH Value:0.0
+ Key:ATC_SLEW_YAW Value:1000.0
+ Key:RC10_MIN Value:1100.0
+ Key:INS_ACCOFFS_X Value:0.0010000000475
+ Key:INS_ACCOFFS_Y Value:0.0010000000475
+ Key:INS_ACCOFFS_Z Value:0.0010000000475
+ Key:SIM_WIND_DIR Value:180.0
+ Key:RNGFND_PIN Value:-1.0
+ Key:RC1_REV Value:1.0
+ Key:CIRCLE_RATE Value:20.0
+ Key:RC_SPEED Value:490.0
+ Key:RATE_YAW_FILT_HZ Value:5.0
+ Key:COMPASS_ORIENT Value:0.0
+ Key:GPS_AUTO_SWITCH Value:1.0
+ Key:SR3_PARAMS Value:0.0
+ Key:SR2_EXTRA2 Value:0.0
+ Key:SR2_EXTRA3 Value:0.0
+ Key:VEL_XY_FILT_HZ Value:5.0
+ Key:SR2_EXTRA1 Value:0.0
+ Key:RATE_RLL_IMAX Value:2000.0
+ Key:MNT_RC_IN_TILT Value:0.0
+ Key:RC7_DZ Value:0.0
+ Key:PILOT_TKOFF_ALT Value:0.0
+ Key:RCMAP_THROTTLE Value:3.0
+ Key:WPNAV_SPEED Value:500.0
+ Key:AHRS_GPS_GAIN Value:1.0
+ Key:ATC_RATE_FF_ENAB Value:1.0
+ Key:SERIAL4_BAUD Value:38.0
+ Key:BATT2_MONITOR Value:0.0
+ Key:PILOT_TKOFF_DZ Value:100.0
+ Key:RCMAP_ROLL Value:1.0
+ Key:RC2_DZ Value:30.0
+ Key:FENCE_TYPE Value:3.0
+ Key:INS_ACC2SCAL_Z Value:1.00100004673
+ Key:INS_ACC2SCAL_X Value:1.00100004673
+ Key:INS_ACC2SCAL_Y Value:1.00100004673
+ Key:GPS_TYPE Value:1.0
+ Key:THR_DZ Value:100.0
+ Key:RALLY_INCL_HOME Value:1.0
+ Key:FS_BATT_VOLTAGE Value:10.5
+ Key:RC3_DZ Value:30.0
+ Key:SIM_GPS_BYTELOSS Value:0.0
+ Key:TELEM_DELAY Value:0.0
+ Key:RNGFND2_GNDCLEAR Value:10.0
+ Key:CLI_ENABLED Value:0.0
+ Key:RC8_DZ Value:0 at: 2018-05-11 06:29:07
+.0
+ Key:SR2_POSITION Value:0.0
+ Key:SIM_FLOW_DELAY Value:0.0
+ Key:BATT_CURR_PIN Value:12.0
+
+Create parameter observer using decorator
+Write vehicle param 'THR_MIN' : 20 (and wait for callback)
+ PARAMETER CALLBACK: THR_MIN changed to: 20.0
+
+Create (removable) observer for any parameter using wildcard string
+ Change THR_MID and THR_MIN parameters (and wait for callback)
+ ANY PARAMETER CALLBACK: THR_MID changed to: 400.0
+ PARAMETER CALLBACK: THR_MIN changed to: 30.0
+ ANY PARAMETER CALLBACK: THR_MIN changed to: 30.0
+
+Reset vehicle attributes/parameters and exit
+ PARAMETER CALLBACK: THR_MIN changed to: 130.0
+ ANY PARAMETER CALLBACK: THR_MIN changed to: 130.0
+ ANY PARAMETER CALLBACK: THR_MID changed to: 500.0
+
+Close vehicle object
+Completed
+ at: 2018-05-11 06:29:07

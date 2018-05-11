@@ -4,6 +4,13 @@ function commandClear(){
     document.getElementById('command').value="";
 };
 
+function clearAll(){
+    document.getElementById('commandValue').value="";
+    document.getElementById('command').value="";
+    document.getElementById('UserCommands').value="";
+    document.getElementById('droneStatus').value="";
+}
+
 //Time and Date
 var currentdate = new Date(); 
 var datetime = currentdate.getDate() + "/"
