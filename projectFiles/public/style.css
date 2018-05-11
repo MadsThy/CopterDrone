@@ -61,7 +61,7 @@ header {
     padding: 10px;
     position: fixed;
     bottom: 20px;
-    transform: translate(10%, -50%);
+    transform: translate(10%, -10%);
     color: white;
 }
 
@@ -78,7 +78,7 @@ header {
     padding: 10px;
     position: fixed;
     bottom: 20px;
-    transform: translate(-110%, -50%);
+    transform: translate(-110%, -10%);
     color: white;
 }
 
