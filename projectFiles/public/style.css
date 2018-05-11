@@ -129,3 +129,25 @@ label {
     font-weight: 600;
     color: white;
 }
+
+#statuslabel {
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    transform: translate(-200%, -860%);
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+#commandloglabel {
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    transform: translate(55%, -860%);
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
