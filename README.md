@@ -80,6 +80,7 @@ npm install events
 npm install bodyparser
 npm install child_process
 npm install path
+npm install querystring
 
 For python:
 pip install dronekit
