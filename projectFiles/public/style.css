@@ -86,7 +86,7 @@ header {
 input[type=submit] {
     width: 260px;
     height: 35px;
-    background: rgb(33, 38, 39);
+    background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
     border-radius: 3px;
     font-family: 'Maven Pro', sans-serif;
@@ -110,7 +110,7 @@ input[type=submit]:active {
 input[type=text] {
     width: 260px;
     height: 35px;
-    background: rgb(33, 38, 39);
+    background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
     border-radius: 3px;
     font-family: 'Maven Pro', sans-serif;
