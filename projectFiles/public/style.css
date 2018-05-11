@@ -122,6 +122,9 @@ input[type=text] {
     color: white;
 }
 
+/*Effects for text inputs*/
+input[type=text]:hover {background-color: #707070}
+
 /*Applied to all labels*/
 label {
     font-family: 'Maven Pro', sans-serif;
