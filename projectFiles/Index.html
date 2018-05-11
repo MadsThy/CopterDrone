@@ -19,6 +19,8 @@ function with /command-->
             userValue = $("#commandValue").val();
             $.post("http://localhost:3000/command", { command: usertext, commandValue: userValue }, function (data) {
             });
+            commandClear();
+            commandAlert();
         });
     });
 </script>
@@ -59,7 +61,7 @@ function with /dronestatus-->
         <br>
         <input type="text" id="commandValue" name="commandValue">
         <br>
-        <input type="submit" id="submit" name="submitManualCommand" value="Send Command" onclick="commandClear();commandAlert();">
+        <input type="submit" id="submit" name="submitManualCommand" value="Send Command">
         <br>
     </center>
 

@@ -49,7 +49,7 @@ app.post('/command', function (req, res) {
         replace(/T/, ' '). // replace T with a space
         replace(/\..+/, '') + "\r\n", function (err) {
           if (err) throw err;
-          console.log('The file has been saved on the system.');
+          console.log('Command has been saved on the system.');
         });
   }
 
