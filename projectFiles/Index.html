@@ -41,7 +41,7 @@ function with /dronestatus-->
     $(document).ready(function () {
         $("#showDroneStatus").click(function () {
             $.post("http://localhost:3000/dronestatus", function (data) {
-                $("#droneStatus").val(data);
+                $("#DroneStatus").val(data);
             });
         });
     });

@@ -136,3 +136,4 @@ Add `attitude` attribute callback/observer on `vehicle`
 Add `mode` attribute callback/observer using decorator
  Set mode=STABILIZE (currently: GUIDED) and wait for callback
  Wait 2s so c at: 2018-05-10 21:50:00
+Command:  with value:  has been sent to the drone on: 2018-05-11 09:53:42
