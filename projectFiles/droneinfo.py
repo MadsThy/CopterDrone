@@ -25,7 +25,8 @@ parser.add_argument('--connect',
                    help="vehicle connection target string. If not specified, SITL automatically started and used.")
 args = parser.parse_args()
 
-connection_string = args.connect
+connection_string = connect('tcp:127.0.0.1:5760', wait_ready=True)
+#connection_string = args.connect
 sitl = None
 
 
