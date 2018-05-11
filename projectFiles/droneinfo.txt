@@ -2387,3 +2387,15 @@ Drone status
 (error(111, 'Connection refused'), 'sleeping')
 (error(111, 'Connection refused'), 'sleeping')
  at: 2018-05-11 11:03:00
+Drone status
+(error(111, 'Connection refused'), 'sleeping')
+(error(111, 'Connection refused'), 'sleeping')
+ at: 2018-05-11 17:04:41
+Drone status
+(error(111, 'Connection refused'), 'sleeping')
+(error(111, 'Connection refused'), 'sleeping')
+ at: 2018-05-11 22:46:41
+Drone status
+(error(111, 'Connection refused'), 'sleeping')
+(error(111, 'Connection refused'), 'sleeping')
+ at: 2018-05-11 22:48:48

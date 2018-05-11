@@ -150,3 +150,4 @@ Command: 123 with value: qwe has been sent to the drone on: 2018-05-11 11:04:19
 Command: test with value: test has been sent to the drone on: 2018-05-11 11:05:48
 Command: qweqweq with value: qwe has been sent to the drone on: 2018-05-11 11:08:35
 Command: qweqw with value: eqwe has been sent to the drone on: 2018-05-11 11:09:14
+Command: test with value: test has been sent to the drone on: 2018-05-11 17:04:17
