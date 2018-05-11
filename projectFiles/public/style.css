@@ -1,7 +1,7 @@
 /*Applied to all bodies*/
 body {
     background-image: url(http://washingtonuas.com/wp-content/uploads/2016/07/635814764285923532-AP-DRONES-AGRICULTURE-75200594.jpg);
-    background-size: cover;
+    background-size: 100% 100%
 }
 
 /*Applied to all headers*/
@@ -25,10 +25,8 @@ header {
     font-weight: 600;
     padding: 10px;
     position: fixed;
-    left: 50%;
     bottom: 20px;
     transform: translate(10%, -50%);
-    margin: 0 auto;
     color: white;
 }
 
@@ -44,10 +42,8 @@ header {
     font-weight: 600;
     padding: 10px;
     position: fixed;
-    left: 50%;
     bottom: 20px;
     transform: translate(-110%, -50%);
-    margin: 0 auto;
     color: white;
 }
 
