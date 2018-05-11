@@ -15,6 +15,13 @@ app.use(bodyParser.json());
 //To use static files like javascript and css
 app.use(express.static(path.join(__dirname, 'public')));
 
+//CORS implementation
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 //--------------------------------------------------
 //Serve html page
 app.get('/', function (req, res) {
@@ -24,10 +31,6 @@ app.get('/', function (req, res) {
 //--------------------------------------------------
 //AJAX call from /command. This sends a command to the drone by calling the scripts.py Python script. This also logs the command into a textfile stored locally.
 app.post('/command', function (req, res) {
-
-  //Allows for cross-origin ressource sharing
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
   //Get HTML element value
   var usercommand = req.body.command;
@@ -70,10 +73,6 @@ app.post('/command', function (req, res) {
 //AJAX call from /dronestatus. This reads the status of the Drone from the droneinfo.py Python script, and returns the value inside the HTML dronestatus textarea
 app.post('/dronestatus', function (req, res) {
 
-  //Allows for cross-origin ressource sharing
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-
   //Call python script and get a return value from the "data" parameter
   var process = spawn('python', ["droneinfo.py"]);
   process.stdout.on('data', function (data) {
@@ -107,10 +106,6 @@ app.post('/dronestatus', function (req, res) {
 //AJAX call from /userlog. This reads the usercommands.txt file and returns the value inside the HTML UserCommands textarea
 app.post('/userlog', function (req, res) {
 
-  //Allows for cross-origin ressource sharing
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  
   fs.readFile('usercommands.txt', 'utf8', function (err, data) {
     if (err) throw err;
     //Send data back to HTML textarea

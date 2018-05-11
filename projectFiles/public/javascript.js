@@ -8,7 +8,7 @@ function clearAll(){
     document.getElementById('commandValue').value="";
     document.getElementById('command').value="";
     document.getElementById('UserCommands').value="";
-    document.getElementById('droneStatus').value="";
+    document.getElementById('DroneStatus').value="";
 }
 
 //Time and Date
