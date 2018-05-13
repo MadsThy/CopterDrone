@@ -1,6 +1,6 @@
 [Service]
 WorkingDirectory=/home/pi/drone
-ExecStart=node /home/pi/drone/node.js
+ExecStart=/bin/bash -c 'node /home/pi/drone/node.js'
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
