@@ -3,10 +3,10 @@ body {
     background-image: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/drone-background-6015.jpg);
     background-size: 100% 100%;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
 }
 
 /*Applied to all headers*/
@@ -50,7 +50,7 @@ header {
 
 /*Specific for UserCommands input*/
 #UserCommands {
-    width: 300px;
+    width: 335px;
     height: 300px;
     background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
@@ -67,7 +67,7 @@ header {
 
 /*Specific for DrroneStatus input*/
 #DroneStatus {
-    width: 300px;
+    width: 335px;
     height: 300px;
     background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
@@ -83,7 +83,7 @@ header {
 }
 
 /*Applied to all submits*/
-input[type=submit] {
+input[type=button] {
     width: 260px;
     height: 35px;
     background: rgba(33, 38, 39, 0.5);
@@ -99,12 +99,14 @@ input[type=submit] {
 }
 
 /*Effects for submit buttons*/
-input[type=submit]:hover {background-color: #707070}
-input[type=submit]:active {
+input[type=button]:hover {
+    background-color: #707070
+}
+input[type=button]:active {
     background-color: #707070;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
+}
 
 /*Applied to all text inputs*/
 input[type=text] {

@@ -2,8 +2,9 @@
 function commandClear(){
     document.getElementById('commandValue').value="";
     document.getElementById('command').value="";
-};
+}
 
+//Clear all input fields and textareas
 function clearAll(){
     document.getElementById('commandValue').value="";
     document.getElementById('command').value="";

@@ -4,12 +4,12 @@ var events = require('events');
 var express = require("express");
 var bodyParser = require("body-parser");
 var spawn = require("child_process").spawn;
-var path = require('path')
+var path = require('path');
 var app = express();
 
 //--------------------------------------------------
 //To use bodyparser
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //To use static files like javascript and css
@@ -37,19 +37,19 @@ app.post('/command', function (req, res) {
   var usercommandValue = req.body.commandValue;
 
   //Print to console
-  console.log("Command: " + usercommand + " with value: " + usercommandValue + " has been sent to the drone");
+  console.log("[INFO] Command: " + usercommand + " with value: " + usercommandValue + " has been sent to the drone");
 
   //Create eventhandler
   var eventEmitter = new events.EventEmitter();
 
   //Append date, time, and command to a file
   var myEventHandler = function () {
-    fs.appendFile('usercommands.txt', "Command: " + usercommand + " with value: " + usercommandValue
-      + " has been sent to the drone on: " + new Date().toISOString().
+    fs.appendFile('usercommands.txt', "Command: " + usercommand + " / " + usercommandValue
+      + " sent at: " + new Date().toISOString().
         replace(/T/, ' '). // replace T with a space
         replace(/\..+/, '') + "\r\n", function (err) {
           if (err) throw err;
-          console.log('Command has been saved on the system.');
+          console.log('[INFO] Command logged to file.');
         });
   }
 
@@ -61,18 +61,20 @@ app.post('/command', function (req, res) {
 
   //Call python script and get a return value from the "data" parameter
   var process = spawn('python', ["scripts.py", usercommand, usercommandValue]);
-  process.stdout.on('data', function (data) {
-    console.log(data.toString());
-  });
+  var data ="";
+  var output = "";
+  process.stdout.on('data', function (data) { output += data });
+  console.log("PYTHON TEST" + data.toString());
   
   //End data
-  res.end("yes");
+  res.end("OK"); //Something can be put here, if you want to return some data to the browser
 });
 
 //--------------------------------------------------
 //AJAX call from /dronestatus. This reads the status of the Drone from the droneinfo.py Python script, and returns the value inside the HTML dronestatus textarea
-app.post('/dronestatus', function (req, res) {
+app.get('/dronestatus', function (req, res) {
 
+  console.log("Trying to get dronestatus");
   //Call python script and get a return value from the "data" parameter
   var process = spawn('python', ["droneinfo.py"]);
   process.stdout.on('data', function (data) {
@@ -87,7 +89,7 @@ app.post('/dronestatus', function (req, res) {
           replace(/T/, ' '). // replace T with a space
           replace(/\..+/, '') + "\r\n", function (err) {
             if (err) throw err;
-            console.log('The file has been saved on the system.');
+            console.log('[INFO] File logged to system.');
           });
     }
 
@@ -104,7 +106,7 @@ app.post('/dronestatus', function (req, res) {
 
 //--------------------------------------------------
 //AJAX call from /userlog. This reads the usercommands.txt file and returns the value inside the HTML UserCommands textarea
-app.post('/userlog', function (req, res) {
+app.get('/userlog', function (req, res) {
 
   fs.readFile('usercommands.txt', 'utf8', function (err, data) {
     if (err) throw err;
