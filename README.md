@@ -72,17 +72,23 @@ In order for the project to be able to run, we need Node-JS. Run these commands 
 sudo apt-get install npm
 sudo apt-get install node
 sudo apt-get install nodejs
-sudo npm install -g express
+```
 
 For npm in node.js please install:
+
+```
+npm install express
 npm install fs
 npm install events
 npm install bodyparser
 npm install child_process
 npm install path
 npm install querystring
+```
 
 For python:
+
+```
 pip install dronekit
 pip install dronekit_sitl
 ```
