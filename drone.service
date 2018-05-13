@@ -1,0 +1,12 @@
+[Service]
+WorkingDirectory=/home/pi/drone
+ExecStart=node /home/pi/drone/node.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=Drone
+User=root
+Group=root
+Environment=NODE_ENV=production
+[Install]
+WantedBy=multi-user.target
