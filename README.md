@@ -87,6 +87,16 @@ pip install dronekit
 pip install dronekit_sitl
 ```
 </details>
+<details>
+    <summary><b>Make node.js file a service on startup</b></summary>
+In order to make the node.js file into a service (that will start on startup), the following needs to be done
+    1. copy the file drone.service into /etc/systemd/system/
+    2. do the following commands:
+
+```
+sudo chmod 644 /etc/systemd/system/drone.service
+```
+</details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
 To prepare the RPi for mavlink communication, run these commands:
     
