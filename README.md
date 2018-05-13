@@ -89,10 +89,10 @@ pip install dronekit_sitl
 </details>
 <details>
     <summary><b>Make node.js file a service on startup</b></summary>
-In order to make the node.js file into a service (that will start on startup), the following needs to be done
+<p>In order to make the node.js file into a service (that will start on startup), the following needs to be done.</p>
     
-    1. copy the file drone.service into /etc/systemd/system/
-    2. do the following commands:
+1. copy the file drone.service into /etc/systemd/system/
+2. do the following commands:
 
 ```
 sudo chmod 644 /etc/systemd/system/drone.service
