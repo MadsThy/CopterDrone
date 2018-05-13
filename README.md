@@ -103,6 +103,12 @@ pip install dronekit_sitl
 ```
 sudo chmod 644 /etc/systemd/system/drone.service
 ```
+You can check if it works by doing the following commands to start/stop the service:
+
+```
+sudo systemctl enable drone
+sudo systemctl disable drone
+```
 </details>
 <details><summary><b>Setup Python and Mavlink</b></summary>
 To prepare the RPi for mavlink communication, run these commands:
