@@ -1,26 +1,22 @@
-print "Start drone"
-#import dronekit_sitl
-#sitl = dronekit_sitl.start_default()
-#connection_string = sitl.connection_string()
-
 # Import DroneKit-Python
 from dronekit import connect, VehicleMode
+from time import sleep
 
 # Connect to the Vehicle.
-vehicle = connect('/dev/ttyAMA0',baud=57600, wait_ready=['system_status','mode','armed'])
+print "Connecting to drone"
+vehicle = connect('/dev/ttyAMA0',baud=57600, wait_ready=['system_status','mode'])
 
-# Get some vehicle attributes (state)
-print "Get some vehicle attribute values:"
-print " GPS: %s" % vehicle.gps_0
-print " Battery: %s" % vehicle.battery
-print " Last Heartbeat: %s" % vehicle.last_heartbeat
-print " Is Armable?: %s" % vehicle.is_armable
-print " System status: %s" % vehicle.system_status.state
-print " Mode: %s" % vehicle.mode.name    # settable
+print "System status: %s" % vehicle.system_status.state
+print "Mode: %s" % vehicle.mode.name    # settable
+print "######################################"
+print "#    Arming drone. Stand clear!!!    #"
+print "######################################"
+sleep(2)
+vehicle.armed = True
+sleep(1)
+vehicle.armed = False
 
 # Close vehicle object before exiting script
 vehicle.close()
 
-# Shut down simulator
-#sitl.stop()
-print("Completed")
+print("Connection completed")
