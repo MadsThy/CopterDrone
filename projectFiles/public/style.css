@@ -50,7 +50,7 @@ header {
 
 /*Specific for UserCommands input*/
 #UserCommands {
-    width: 335px;
+    width: 450px;
     height: 300px;
     background: rgba(33, 38, 39, 0.5);
     border: 1px solid white;
