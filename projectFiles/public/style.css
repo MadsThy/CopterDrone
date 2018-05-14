@@ -1,7 +1,7 @@
 /*Applied to all bodies*/
 body {
-    background-image: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/drone-background-6015.jpg);
-    background-size: 100% 100%;
+    background-image: url(background.jpg);
+    background-size: 100%;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
     -ms-animation: fadein 2s; /* Internet Explorer */
