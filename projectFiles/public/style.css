@@ -136,7 +136,7 @@ label {
     padding: 10px;
     position: fixed;
     bottom: 20px;
-    transform: translate(-200%, -860%);
+    transform: translate(-220%, -860%);
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -147,7 +147,7 @@ label {
     padding: 10px;
     position: fixed;
     bottom: 20px;
-    transform: translate(55%, -860%);
+    transform: translate(68%, -860%);
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;
     font-weight: 600;
