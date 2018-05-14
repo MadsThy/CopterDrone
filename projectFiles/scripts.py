@@ -6,7 +6,7 @@ from dronekit import connect
 print("Drone command output from python: " + sys.argv[1] + " " + sys.argv[2])
 
 #Connect to the Drone with an IP-adress and a port
-vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
+vehicle = connect('/dev/ttyAMA0',baud=57600, wait_ready=True)
 
 #This is the method which takes the command from the HTML page. The command is then taken through some if else statements to check if the command is supported.
 def arm_and_takeoff(aTargetAltitude):
