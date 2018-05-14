@@ -7,6 +7,8 @@ var spawn = require("child_process").spawn;
 var path = require('path');
 var app = express();
 
+var cmd = require('node-cmd');
+
 //--------------------------------------------------
 //To use bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -60,12 +62,26 @@ app.post('/command', function (req, res) {
   eventEmitter.emit('savefile');
 
   //Call python script and get a return value from the "data" parameter
-  var process = spawn('python', ["scripts.py", usercommand, usercommandValue]);
-  var data ="";
-  var output = "";
-  process.stdout.on('data', function (data) { output += data });
-  console.log("PYTHON TEST" + data.toString());
-  
+  var pyProcess = cmd.get('python test.py',
+    function(data, err, stderr) {
+      if (!err) {
+        console.log("data from python script " + data)
+      } else {
+        console.log("python script cmd error: " + err)
+      }
+    }
+    );
+  /*
+  var process = spawn('python', ['test.py']);
+  process.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+  });
+  //console.log("PYTHON TEST" + data.toString());
+  console.log("PYTHON TEST");
+  process.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
+  */
   //End data
   res.end("OK"); //Something can be put here, if you want to return some data to the browser
 });
