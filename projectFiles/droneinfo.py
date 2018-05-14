@@ -29,14 +29,6 @@ connection_string = connect('/dev/ttyAMA0',baud=57600, wait_ready=True)
 #connection_string = args.connect
 sitl = None
 
-
-#Start SITL if no connection string specified
-if not connection_string:
-    import dronekit_sitl
-    sitl = dronekit_sitl.start_default()
-    connection_string = sitl.connection_string()
-
-
 # Connect to the Vehicle. 
 #   Set `wait_ready=True` to ensure default attributes are populated before `connect()` returns.
 print("\nConnecting to vehicle on: %s" % connection_string)
