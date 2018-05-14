@@ -13,6 +13,12 @@ print "#    Arming drone. Stand clear!!!    #"
 print "######################################"
 sleep(2)
 vehicle.armed = True
+print "Disarming in..."
+print "3..."
+sleep(1)
+print "2..."
+sleep(1)
+print "1..."
 sleep(1)
 vehicle.armed = False
 
