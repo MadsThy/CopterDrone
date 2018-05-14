@@ -91,6 +91,7 @@ For python:
 ```
 pip install dronekit
 pip install dronekit_sitl
+pip install pyserial
 ```
 </details>
 <details>
