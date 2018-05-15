@@ -36,17 +36,17 @@ app.get('/', function (req, res) {
 //AJAX call from /command. This sends a command to the drone by calling the scripts.py Python script. This also logs the command into a textfile stored locally.
 app.post('/command', function (req, res) {
 
-  //Get HTML element value
+  //Get HTML element value that are placed in the body part of the HTML file
   var usercommand = req.body.command;
   var usercommandValue = req.body.commandValue;
 
-  //Print to console
-  console.log("[INFO] Command: " + usercommand + " with value: " + usercommandValue + " has been sent to the drone");
+  //Prints to console
+  console.log("[INFO] Command: " + usercommand + " with the value: " + usercommandValue + " has been sent to the drone");
 
   //Create eventhandler
   var eventEmitter = new events.EventEmitter();
 
-  //Append date, time, and command to a file
+  //Append date, time, and command to the logging file
   var myEventHandler = function () {
     fs.appendFile('usercommands.txt', "Command: " + usercommand + " / " + usercommandValue
       + " sent at: " + new Date().toISOString().
@@ -57,7 +57,7 @@ app.post('/command', function (req, res) {
         });
   }
 
-  //Assign the event handler to an event:
+  //Assign the event handler to an event. "savefile" is the name of the event
   eventEmitter.on('savefile', myEventHandler);
 
   //Fire the 'savefile' event:
