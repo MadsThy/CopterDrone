@@ -14,7 +14,8 @@ var cmd = require('node-cmd');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//To use static files like javascript and css
+//To use static files like javascript and css.
+//The static files are saved in the public folder in the project folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 //CORS implementation
@@ -25,7 +26,8 @@ app.all('*', function(req, res, next) {
   next();
 });
 //--------------------------------------------------
-//Serve html page
+//We use a technologi called "Express" to deliver an HTML page. 
+//This response.sendfile does also work fine with any other files.
 app.get('/', function (req, res) {
   res.sendfile("Index.html");
 });
