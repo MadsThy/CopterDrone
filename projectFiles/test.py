@@ -4,7 +4,7 @@ from time import sleep
 
 # Connect to the Vehicle.
 print "Connecting to drone"
-vehicle = connect('/dev/ttyAMA0',baud=57600, wait_ready=['system_status','mode','armed'])
+vehicle = connect('udp:127.0.0.1:14550')
 
 print "System status: %s" % vehicle.system_status.state
 print "Mode: %s" % vehicle.mode.name    # settable
