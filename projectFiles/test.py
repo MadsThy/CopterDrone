@@ -1,9 +1,10 @@
+print ("Starting system...")
 # Import DroneKit-Python
-from dronekit import connect, VehicleMode
+from dronekit import connect
 from time import sleep
 
 # Connect to the Vehicle.
-print ("Connecting to drone")
+print ("Connecting to drone...")
 vehicle = connect('udp:127.0.0.1:14550')
 
 print ("System status: %s" % vehicle.system_status.state)
