@@ -53,4 +53,4 @@ def arm_and_takeoff(aTargetAltitude):
             break
         sleep(0.5)
 
-arm_and_takeoff(vehicle.location.global_relative_frame.alt+0.5)
+arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter relative to current altitude.
