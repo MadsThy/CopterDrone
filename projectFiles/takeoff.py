@@ -1,4 +1,5 @@
 # Import DroneKit-Python
+print "Wait 15 seconds for Dronekit to be imported"
 from dronekit import connect, VehicleMode
 from time import sleep
 
@@ -47,10 +48,21 @@ def arm_and_takeoff(aTargetAltitude):
         #Break and return from function just below target altitude.
         if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95:
             print "Reached target altitude"
-            vehicle.mode    = VehicleMode("STABILIZE")
-            sleep(1)
-            vehicle.armed   = False
+            #vehicle.mode    = VehicleMode("STABILIZE")
+            #sleep(1)
+            #vehicle.armed   = False
             break
         sleep(0.5)
 
 arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter relative to current altitude.
+
+print("Take off complete - Hovering")
+print " Altitude before landing 1: ", vehicle.location.global_relative_frame.alt
+# Hover for 5 seconds
+sleep(5)
+print " Altitude  before landing 2: ", vehicle.location.global_relative_frame.alt
+print("Now let's land")
+vehicle.mode = VehicleMode("LAND")
+print " Altitude after landing: ", vehicle.location.global_relative_frame.alt
+# Close vehicle object
+vehicle.close()

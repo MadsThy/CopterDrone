@@ -64,7 +64,7 @@ app.post('/command', function (req, res) {
   eventEmitter.emit('savefile');
 
   //Call python script and get a return value from the "data" parameter
-  var pyProcess = cmd.get('python test.py',
+  var pyProcess = cmd.get('python takeoff.py',
     function(data, err, stderr) {
       if (!err) {
         console.log("data from python script " + data)
