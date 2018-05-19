@@ -1,7 +1,7 @@
 from threading import Thread
 import socket, time
 
-VERBOSE = True
+VERBOSE = False
 IP_ADDRESS = "127.0.0.1"
 IP_PORT = 22000
 
@@ -19,7 +19,6 @@ class Receiver(Thread):
             except:
                 debug("Exception in Receiver.run()")
                 isReceiverRunning = False
-                closeConnection()
                 break
         debug("Receiver thread terminated")
 
@@ -58,6 +57,7 @@ def sendCommand(cmd):
 def closeConnection():
     global isConnected
     debug("Closing socket")
+    sock.shutdown(1)
     sock.close()
     isConnected = False
 
@@ -77,18 +77,8 @@ sock = None
 isConnected = False
 
 if connect():
+    print "Arming Drone"
     sendCommand("arm")
-    time.sleep(2)
-    sendCommand("disarm")
-    time.sleep(2)
-    #isConnected = True
-    #print "Connection established"
-    #time.sleep(1)
-    #while isConnected:
-    #    sendCommand(testVar)
-    #    print "Sending command:", testVar
-    #    isConnected = False
-    #    time.sleep(2)
     closeConnection()
     exit()
 else:

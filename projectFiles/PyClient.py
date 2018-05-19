@@ -1,7 +1,7 @@
-# client1.py
-
 from threading import Thread
-import socket, time
+import sys, socket, time
+
+print "Script called with following arguments: " + sys.argv[1]
 
 VERBOSE = False
 IP_ADDRESS = "127.0.0.1"
@@ -21,7 +21,6 @@ class Receiver(Thread):
             except:
                 debug("Exception in Receiver.run()")
                 isReceiverRunning = False
-                closeConnection()
                 break
         debug("Receiver thread terminated")
 
@@ -60,6 +59,7 @@ def sendCommand(cmd):
 def closeConnection():
     global isConnected
     debug("Closing socket")
+    sock.shutdown(1)
     sock.close()
     isConnected = False
 
@@ -79,18 +79,11 @@ sock = None
 isConnected = False
 
 if connect():
-    isConnected = True
-    print "Connection established"
-    time.sleep(1)
-    while isConnected:
-        testVar = raw_input("Ask user for something.\n")
-        if testVar == "quit":
-            sock.shutdown
-            sock.close()
-            exit()
-        print "Sending command:", testVar
-        sendCommand(testVar)
-        time.sleep(2)
+    print "Sending command '"+sys.argv[1]+"'"
+    sendCommand(sys.argv[1])
+    closeConnection()
+    exit()
 else:
     print "Connection to %s:%d failed" % (IP_ADDRESS, IP_PORT)
-print "done"    
+print "done"
+closeConnection()

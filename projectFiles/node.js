@@ -64,7 +64,8 @@ app.post('/command', function (req, res) {
   eventEmitter.emit('savefile');
 
   //Call python script and get a return value from the "data" parameter
-  var pyProcess = cmd.get('python takeoff.py',
+  commandString = 'python PyClient.py '+usercommand+' '+usercommandValue
+  var pyProcess = cmd.get(commandString,
     function(data, err, stderr) {
       if (!err) {
         console.log("data from python script " + data)
@@ -73,18 +74,8 @@ app.post('/command', function (req, res) {
       }
     }
     );
-  /*
-  var process = spawn('python', ['test.py']);
-  process.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
-  });
-  //console.log("PYTHON TEST" + data.toString());
-  console.log("PYTHON TEST");
-  process.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
-  });
-  */
-  //End data
+  console.log("Command sent: "+commandString);
+
   res.end("OK"); //Something can be put here, if you want to return some data to the browser
 });
 
