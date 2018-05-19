@@ -18,21 +18,26 @@ print "######################################"
 print "#    Arming drone. Stand clear!!!    #"
 print "######################################"
 
-def condition_yaw(heading, relative=False):
-    """
-    Send MAV_CMD_CONDITION_YAW message to point vehicle at a specified heading (in degrees).
-    This method sets an absolute heading by default, but you can set the `relative` parameter
-    to `True` to set yaw relative to the current yaw heading.
-    By default the yaw of the vehicle will follow the direction of travel. After setting 
-    the yaw using this function there is no way to return to the default yaw "follow direction 
-    of travel" behaviour (https://github.com/diydrones/ardupilot/issues/2427)
-    For more information see: 
-    http://copter.ardupilot.com/wiki/common-mavlink-mission-command-messages-mav_cmd/#mav_cmd_condition_yaw
-    """
+def turn(heading, relative, direction):
+    print "Current Heading: %s" % vehicle.heading
+        
     if relative:
         is_relative = 1 #yaw relative to direction of travel
+        print "Turning", direction, heading, "degrees relative to current heading."
+        if direction == "CW":
+            newHeading = vehicle.heading+heading
+            direction = 1
+        else: 
+            newHeading = vehicle.heading-heading
+            direction = -1
+        if newHeading>360:
+            newHeading-360
+        if newHeading<0:
+            newHeading+360
+        print "New Heading: %s" % newHeading
     else:
         is_relative = 0 #yaw is an absolute angle
+        print "Turning to %s degrees absolute." % heading
     # create the CONDITION_YAW command using command_long_encode()
     msg = vehicle.message_factory.command_long_encode(
         0, 0,    # target system, target component
@@ -40,11 +45,21 @@ def condition_yaw(heading, relative=False):
         0, #confirmation
         heading,    # param 1, yaw in degrees
         0,          # param 2, yaw speed deg/s
-        1,          # param 3, direction -1 ccw, 1 cw
+        direction,          # param 3, direction -1 ccw, 1 cw
         is_relative, # param 4, relative offset 1, absolute angle 0
         0, 0, 0)    # param 5 ~ 7 not used
     # send command to vehicle
     vehicle.send_mavlink(msg)
+    while True:
+        print "Current heading: %s" % vehicle.heading
+        if direction == 1 and vehicle.heading>=newHeading:
+            print "New heading reached"
+            break
+        elif direction == -1 and vehicle.heading<=newHeading:
+            print "New heading reached"
+            break
+        sleep(0.5)
+
 
 def arm_and_takeoff(aTargetAltitude):
     """
@@ -89,27 +104,16 @@ arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter r
 
 print("Take off complete - Hovering")
 
-sleep(5)
+sleep(3)
 
-print "Turning 90 degrees"
-degreesToTurn = 90
-newHeading = vehicle.heading+degreesToTurn
-print "Current Heading: %s" % vehicle.heading
-print "New Heading: %s" % newHeading
-condition_yaw(degreesToTurn,relative=True)
-while True:
-    print " Heading: %s" % vehicle.heading
-    if vehicle.heading>=newHeading:
-        print "New heading reached"
-        break
-    sleep(0.5)
+turn(90,True,"CW")
 
+sleep(3)
 
-print " Heading: %s" % vehicle.heading
+turn(90,True,"CCW")
 
 print " Altitude before landing: ", vehicle.location.global_relative_frame.alt
-# Hover for 5 seconds
-sleep(5)
+sleep(3)
 
 print("Now let's land")
 vehicle.mode = VehicleMode("LAND")
