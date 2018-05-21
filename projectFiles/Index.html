@@ -7,30 +7,31 @@
 	<link rel="icon" href="droneIcon.png">
 </head>
 <script src="jquery-3.3.1.min.js"></script>
-<header>Drone Control</header>
+<header>Drone Control
 
 <!--For sending command and saving to log. This AJAX request calls the nodejs 
 	function with /command-->
 	<script>
 		$(document).ready(function () {
 			$("#submitManualCommand").click(function () {
-				if ($("#command").val() != "" &&  $("#commandValue").val() != "") {
-					$.post("/command", $( "#droneForm" ).serialize(), function(data){
-						commandAlert();
-						commandClear();
-					});
-					
+				if ($("#command").val() != "") {
+                    $.get("/commands?command="+$("#command").val())
 				}
 				else{
-					alert("Missing command or command value");
+					alert("No command entered.");
 				}
-				
 			});
-		});
-	</script>
+            
+            $("#arm").click(function () {$.get("/commands?command=arm")});
+            
+            $("#disarm").click(function () {$.get("/commands?command=disarm")});
+            
+            $("#mission").click(function () {
+                if(confirm("Are you sure about this?!?!! DO NOT PRESS IF NOT SURE!"))
+                $.get("/commands?command=mission")
+            });
+        
 
-	<!--For reading command log. This AJAX request calls the nodejs function with /userlog-->
-	<script>
 		$(document).ready(function () {
 			$("#showUserCommandsLog").click(function () {
 				$.get("/userlog", function (data) {
@@ -38,50 +39,37 @@
 				});
 			});
 		});
+    });
 	</script>
-
-	<!--For reading Drone status. This AJAX request calls the nodejs function with /dronestatus-->
-	<script>
-		$(document).ready(function () {
-			$("#showDroneStatus").click(function () {
-				$.get("/dronestatus", function (data) {
-					alert("Data: "+ data);
-					$("#DroneStatus").val(data);
-				});
-			});
-		});
-	</script>
-</head>
+</header>
 
 <body>
 	<!--For sending command to drone and appending user command to log with current time-->
 	<form id="droneForm">
 		<center>
-			<label>Command</label>
-			<br>
-			<input type="text" id="command" name="command">
-			<br>
-			<label>Command Value</label>
-			<br>
-			<input type="text" id="commandValue" name="commandValue">
-			<br>
-			<input type="button" id="submitManualCommand" name="submitManualCommand" value="Send Command">
-			<br>
-
+            <br>
+            <input type="button" id="arm" name="arm" value="Arm Drone"  />
+            <br>
+            <input type="button" id="disarm" name="disarm" value="Disarm Drone"  />
+            <br>
+            <input type="button" id="mission" name="mission" value="Fly Full Mission" />
+            <br><br>
 			<!--For reading the command log which is stored on the server. -->
 			<input type="button" id="showUserCommandsLog" name="showUserCommandsLog" value="Get User commands log"  />
-			<br>
-			<label id="commandloglabel">User Command Log</label>
-			<textarea id="UserCommands" readonly></textarea>
+            <br><br>
+            
+            <!--For sending manual commands-->
+            <label>Manual Command</label>
+            <br>
+			<input type="text" id="command" name="command">
+            <br>
+			<input type="button" id="submitManualCommand" name="submitManualCommand" value="Send Command"><br>
+            
+            <label id="commandloglabel">User Command Log</label>
+            <textarea id="UserCommands" readonly></textarea>
+            </center>
 
-			<!--For reading the Drone status-->
-			<input type="button" id="showDroneStatus" name="showDroneStatus" value="Get Drone status"  />
-			<br>
-			<label id="statuslabel">Drone Status</label>
-			<textarea id="DroneStatus" readonly></textarea>
-			<input type="button" value="Clear all fields" id="clearbutton" onclick="clearAll()"/>
-			<br>
-		</center>
+                
 	</form>
 	<!--Calls JavaScript at the end after the CSHTML and CSS have been loaded.-->
 	<footer>

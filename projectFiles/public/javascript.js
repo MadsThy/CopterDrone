@@ -1,12 +1,10 @@
 //Clear all inputs when command button is pressed
 function commandClear(){
-    document.getElementById('commandValue').value="";
     document.getElementById('command').value="";
 }
 
 //Clear all input fields and textareas
 function clearAll(){
-    document.getElementById('commandValue').value="";
     document.getElementById('command').value="";
     document.getElementById('UserCommands').value="";
     document.getElementById('DroneStatus').value="";
@@ -23,5 +21,5 @@ var datetime = currentdate.getDate() + "/"
 
 //Send an alert that the command has been sent
 function commandAlert(){
-    alert("Command: " + document.getElementById('command').value + " with value " + document.getElementById('commandValue').value + " has been sent to the Drone at: " + datetime);
+    alert("Command: " + document.getElementById('command').value + " sent to drone at: " + datetime);
 }

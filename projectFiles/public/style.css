@@ -56,30 +56,13 @@ header {
     border: 1px solid white;
     border-radius: 3px;
     font-family: 'Maven Pro', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     padding: 10px;
-    position: fixed;
-    bottom: 20px;
-    transform: translate(10%, -10%);
+    position: relative;
+    top: 50px;
     color: white;
-}
-
-/*Specific for DrroneStatus input*/
-#DroneStatus {
-    width: 335px;
-    height: 300px;
-    background: rgba(33, 38, 39, 0.5);
-    border: 1px solid white;
-    border-radius: 3px;
-    font-family: 'Maven Pro', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 10px;
-    position: fixed;
-    bottom: 20px;
-    transform: translate(-110%, -10%);
-    color: white;
+    display: block;
 }
 
 /*Applied to all submits*/
@@ -93,8 +76,7 @@ input[type=button] {
     font-size: 16px;
     font-weight: 600;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
     color: white;
 }
 
@@ -119,8 +101,7 @@ input[type=text] {
     font-size: 16px;
     font-weight: 600;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
     color: white;
 }
 
@@ -145,8 +126,8 @@ label {
 
 #commandloglabel {
     padding: 10px;
-    position: fixed;
-    bottom: 20px;
+    position: relative;
+    top: 20px;
     transform: translate(55%, -860%);
     font-family: 'Maven Pro', sans-serif;
     font-size: 16px;

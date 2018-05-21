@@ -1,6 +1,6 @@
 # PYTHON SERVER Program that receives instant commands from the client program
 from threading import Thread
-import socket,sys,math,logging
+import socket,sys,math,logging,os
 logging.basicConfig(level=logging.INFO)
 from dronekit import connect, VehicleMode
 logging.info("Dronekit imported.")
@@ -119,6 +119,10 @@ while True:
         print "Message received from client:", command
         vehicle.armed = False
         conn.send("OK - Disarm")
+    elif command == "reboot":
+        print "Message received from client:", command
+        os.system('sudo shutdown -r now')
+        conn.send("OK - Shutting down")
         
     elif command == "":
         print "Message received from client:", command
