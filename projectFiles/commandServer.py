@@ -1,24 +1,23 @@
-# Import DroneKit-Python
-print "Wait 15 seconds for Dronekit to be imported"
+# PYTHON SERVER Program that receives instant commands from the client program
+from threading import Thread
+import socket,sys,math,logging
+logging.basicConfig(level=logging.INFO)
 from dronekit import connect, VehicleMode
+logging.info("Dronekit imported.")
 from pymavlink import mavutil # Needed for command message definitions
 from time import sleep
-import math
 
-# Connect to the Vehicle.
-print "Connecting to drone"
+HOST = ''               # Symbolic name meaning all available interfaces
+PORT = 1337             # Arbitrary non-privileged port
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((HOST, PORT))    # Bind to host at port
+s.listen(5)             #Accept 5 connections at any one time
+logging.info("Server listening on localhost:"+str(PORT))
 
-# Connect to the Vehicle (in this case a simulator running the same computer)
-vehicle = connect('udp:127.0.0.1:14550', wait_ready=['system_status','mode','armed'])
-print "System status: %s" % vehicle.system_status.state
-print "Mode: %s" % vehicle.mode.name    # settable
-print "Armed: %s" % vehicle.armed    # settable
-print "Heading: %s" % vehicle.heading
-print "######################################"
-print "#    Arming drone. Stand clear!!!    #"
-print "######################################"
+vehicle = connect('udp:127.0.0.1:14550',wait_ready=True)
+print "Server ready."
 
-##########################################################################################
+# ---------------------- YAW-control SCRIPT ------------------------
 
 def turn(heading, relative, direction):
     print "Current Heading: %s" % vehicle.heading
@@ -62,7 +61,7 @@ def turn(heading, relative, direction):
             break
         sleep(0.5)
 
-##########################################################################################
+# ---------------------- ARM and TAKEOFF script ------------------------
 
 def arm_and_takeoff(aTargetAltitude):
     vehicle.mode    = VehicleMode("GUIDED")
@@ -82,29 +81,52 @@ def arm_and_takeoff(aTargetAltitude):
             break
         sleep(0.5)
 
-##########################################################################################
+# ---------------------- Connection and arguments ------------------------
 
-arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter relative to current altitude.
+conn, addr = s.accept()
+print 'Connection started by:', addr
 
-print("Take off complete - Hovering")
+while True:
+    command = conn.recv(1024);
 
-sleep(3)
-
-turn(90,True,"CW")
-
-sleep(3)
-
-turn(90,True,"CCW")
-
-print " Altitude before landing: ", vehicle.location.global_relative_frame.alt
-sleep(3)
-
-print("Now let's land")
-vehicle.mode = VehicleMode("LAND")
-print " Altitude after landing: ", vehicle.location.global_relative_frame.alt
-# Close vehicle object
-vehicle.mode = VehicleMode("STABILIZE")
-
-vehicle.armed  = False
-
-vehicle.close()
+    if command.strip() == "disconnect":
+        conn.send("Stop server - Bye")
+        conn.close()
+        vehicle.close()
+        sys.exit("Received disconnect message.  Shutting down.")
+        
+    elif command == "mission":
+        print "Message received from client:", command
+        conn.send("OK - Mission")
+        
+        arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter
+        sleep(3)
+        turn(90,True,"CW")
+        sleep(3)
+        turn(90,True,"CCW")
+        sleep(3)
+        vehicle.mode = VehicleMode("LAND")
+        # Close vehicle object and disarm
+        vehicle.mode = VehicleMode("STABILIZE")
+        vehicle.armed  = False
+        
+    elif command == "arm":
+        print "Message received from client:", command
+        vehicle.armed = True
+        conn.send("OK - Arm")
+        
+    elif command == "disarm":
+        print "Message received from client:", command
+        vehicle.armed = False
+        conn.send("OK - Disarm")
+        
+    elif command == "":
+        print "Message received from client:", command
+        conn.send("ack")
+        
+    else:
+        print "Received unrecognised command' "+command+"'"
+        conn.send("Failure - Unrecognised command")
+        
+    conn, addr = s.accept() #restart command acceptance
+conn.close()

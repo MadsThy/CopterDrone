@@ -161,7 +161,7 @@ except socket.error as msg:
     print "Bind failed", msg[0], msg[1]
     vehicle.close()
     sys.exit()
-serverSocket.listen(5)
+serverSocket.listen(10)
 
 print "Waiting for a connecting client..."
 isConnected = False
