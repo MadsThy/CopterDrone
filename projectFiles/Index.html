@@ -1,80 +1,86 @@
 ﻿<html>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Drone Control</title>
-	<link rel="stylesheet" href="style.css" type="text/css" />
-	<link rel="icon" href="droneIcon.png">
-</head>
-<script src="jquery-3.3.1.min.js"></script>
-<header>Drone Control
+    <head>
+        <meta charset="UTF-8">
+        <title>Drone Control</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="icon" href="droneIcon.png">
+    </head>
+    <script src="jquery-3.3.1.min.js"></script>
+    <header>Drone Control
 
-<!--For sending command and saving to log. This AJAX request calls the nodejs 
-	function with /command-->
-	<script>
-		$(document).ready(function () {
-			$("#submitManualCommand").click(function () {
-				if ($("#command").val() != "") {
-                    $.get("/commands?command="+$("#command").val())
-				}
-				else{
-					alert("No command entered.");
-				}
-			});
-            
-            $("#arm").click(function () {$.get("/commands?command=arm")});
-            
-            $("#disarm").click(function () {$.get("/commands?command=disarm")});
-            
-            $("#mission").click(function () {
-                if(confirm("Are you sure about this?!?!! DO NOT PRESS IF NOT SURE!"))
-                $.get("/commands?command=mission")
+        <!--For sending command and saving to log. This AJAX request calls the nodejs 
+function with /command-->
+        <script>
+            $(document).ready(function () {
+                $("#command").keyup(function(event) {
+                    if (event.keyCode === 13) {
+                        $("#submitManualCommand").click();
+                    }
+                });
+
+                $("#submitManualCommand").click(function () {
+                    if ($("#command").val() != "") {
+                        $.get("/commands?command="+$("#command").val())
+                    }
+                    else{
+                        alert("No command entered.");
+                    }
+                });
+
+                $("#arm").click(function () {$.get("/commands?command=arm")});
+
+                $("#disarm").click(function () {$.get("/commands?command=disarm")});
+
+                $("#mission").click(function () {
+                    if(confirm("Are you sure about this?!?!! DO NOT PRESS IF NOT SURE!"))
+                        $.get("/commands?command=mission")
+                });
+
+
+                $(document).ready(function () {
+                    $("#showUserCommandsLog").click(function () {
+                        $.get("/userlog", function (data) {
+                            $("#UserCommands").val(data);
+                        });
+                    });
+                });
             });
-        
+        </script>
+    </header>
 
-		$(document).ready(function () {
-			$("#showUserCommandsLog").click(function () {
-				$.get("/userlog", function (data) {
-					$("#UserCommands").val(data);
-				});
-			});
-		});
-    });
-	</script>
-</header>
+    <body>
+        <!--For sending command to drone and appending user command to log with current time-->
+        <form id="droneForm">
+            <center>
+                <br>
+                <input type="button" id="arm" name="arm" value="Arm Drone"  />
+                <br>
+                <input type="button" id="disarm" name="disarm" value="Disarm Drone"  />
+                <br>
+                <input type="button" id="mission" name="mission" value="Fly Full Mission" />
+                <br><br>
+                <!--For reading the command log which is stored on the server. -->
+                <input type="button" id="showUserCommandsLog" name="showUserCommandsLog" value="Get User commands log"  />
+                <br><br>
 
-<body>
-	<!--For sending command to drone and appending user command to log with current time-->
-	<form id="droneForm">
-		<center>
-            <br>
-            <input type="button" id="arm" name="arm" value="Arm Drone"  />
-            <br>
-            <input type="button" id="disarm" name="disarm" value="Disarm Drone"  />
-            <br>
-            <input type="button" id="mission" name="mission" value="Fly Full Mission" />
-            <br><br>
-			<!--For reading the command log which is stored on the server. -->
-			<input type="button" id="showUserCommandsLog" name="showUserCommandsLog" value="Get User commands log"  />
-            <br><br>
-            
-            <!--For sending manual commands-->
-            <label>Manual Command</label>
-            <br>
-			<input type="text" id="command" name="command">
-            <br>
-			<input type="button" id="submitManualCommand" name="submitManualCommand" value="Send Command"><br>
-            
-            <label id="commandloglabel">User Command Log</label>
-            <textarea id="UserCommands" readonly></textarea>
+                <!--For sending manual commands-->
+                <label>Manual Command</label>
+                <br>
+                <input type="text" id="command" name="command">
+                <br>
+                <input type="button" id="submitManualCommand" name="submitManualCommand" value="Send Command"><br>
+
+                <label id="commandloglabel">User Command Log</label>
+                <textarea id="UserCommands" readonly></textarea>
             </center>
 
-                
-	</form>
-	<!--Calls JavaScript at the end after the CSHTML and CSS have been loaded.-->
-	<footer>
-		<script src="javascript.js"></script>
-	</footer>
-</body>
+
+        </form>
+        <!--Calls JavaScript at the end after the CSHTML and CSS have been loaded.-->
+        <footer>
+            <script src="javascript.js"></script>
+        </footer>
+    </body>
 
 </html>
