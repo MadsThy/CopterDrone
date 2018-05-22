@@ -101,14 +101,21 @@ while True:
         
         arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter
         sleep(3)
-        turn(90,True,"CW")
+        turn(180,True,"CW")
         sleep(3)
-        turn(90,True,"CCW")
+        turn(180,True,"CCW")
         sleep(3)
         vehicle.mode = VehicleMode("LAND")
         # Close vehicle object and disarm
         vehicle.mode = VehicleMode("STABILIZE")
         vehicle.armed  = False
+    
+    elif command == "panic":
+        print "Message received from client:", command
+        conn.send("OK - PANIC")
+        
+        vehicle.mode = VehicleMode("STABILIZE")
+        vehicle.armed = False
         
     elif command == "arm":
         print "Message received from client:", command
