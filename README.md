@@ -16,7 +16,7 @@ NOTE: Username "pi" and password "raspberry".
 <details>
     <summary><b>Initial setup</b></summary>
 Commands to run:
-    
+The first command updates the Raspberry Pi    
 ```
 sudo apt-get update (takes up to 5 minutes)
 sudo raspi-config
