@@ -1,11 +1,10 @@
 # PYTHON SERVER Program that receives instant commands from the client program
 from threading import Thread
-import socket,sys,math,logging,os
+import socket,sys,math,logging,os,time
 logging.basicConfig(level=logging.INFO)
 from dronekit import connect, VehicleMode
 logging.info("Dronekit imported.")
 from pymavlink import mavutil # Needed for command message definitions
-from time import sleep
 
 HOST = ''               # Symbolic name meaning all available interfaces
 PORT = 1337             # Arbitrary non-privileged port
@@ -17,7 +16,7 @@ logging.info("Server listening on localhost:"+str(PORT))
 vehicle = connect('udp:127.0.0.1:14550',wait_ready=True)
 print "Server ready."
 
-# ---------------------- YAW-control SCRIPT ------------------------
+# ---------------------- YAW-control (turn) script ------------------------
 
 def turn(heading, relative, direction):
     print "Current Heading: %s" % vehicle.heading
@@ -59,17 +58,16 @@ def turn(heading, relative, direction):
         elif direction == -1 and vehicle.heading<=newHeading:
             print "New heading reached"
             break
-        sleep(0.5)
+        time.sleep(0.5)
 
 # ---------------------- ARM and TAKEOFF script ------------------------
 
 def arm_and_takeoff(aTargetAltitude):
     vehicle.mode    = VehicleMode("GUIDED")
     print " Waiting for arming..."
-    sleep(13)
+    time.sleep(13)
     vehicle.armed   = True
-
-    sleep(2)
+    time.sleep(2)
     print "Taking off!"
     vehicle.simple_takeoff(aTargetAltitude) # Take off to target altitude
 
@@ -79,8 +77,22 @@ def arm_and_takeoff(aTargetAltitude):
         if vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95:
             print "Reached target altitude"
             break
-        sleep(0.5)
+        time.sleep(0.5)
 
+# ---------------------- Define mission as thread ------------------------    
+def threaded_function():
+        arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter
+        
+        time.sleep(3)
+        turn(180,True,"CW")
+        time.sleep(3)
+        turn(180,True,"CCW")
+        time.sleep(3)
+        vehicle.mode = VehicleMode("LAND")
+        # Close vehicle object and disarm
+        vehicle.mode = VehicleMode("STABILIZE")
+        vehicle.armed  = False
+        
 # ---------------------- Connection and arguments ------------------------
 
 conn, addr = s.accept()
@@ -98,17 +110,8 @@ while True:
     elif command == "mission":
         print "Message received from client:", command
         conn.send("OK - Mission")
-        
-        arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter
-        sleep(3)
-        turn(180,True,"CW")
-        sleep(3)
-        turn(180,True,"CCW")
-        sleep(3)
-        vehicle.mode = VehicleMode("LAND")
-        # Close vehicle object and disarm
-        vehicle.mode = VehicleMode("STABILIZE")
-        vehicle.armed  = False
+        thread = Thread(target = threaded_function)
+        thread.start()
     
     elif command == "panic":
         print "Message received from client:", command
@@ -126,15 +129,12 @@ while True:
         print "Message received from client:", command
         vehicle.armed = False
         conn.send("OK - Disarm")
+
     elif command == "reboot":
         print "Message received from client:", command
         os.system('sudo shutdown -r now')
         conn.send("OK - Shutting down")
-        
-    elif command == "":
-        print "Message received from client:", command
-        conn.send("ack")
-        
+                
     else:
         print "Received unrecognised command' "+command+"'"
         conn.send("Failure - Unrecognised command")
