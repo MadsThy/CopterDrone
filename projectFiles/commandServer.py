@@ -81,7 +81,7 @@ def arm_and_takeoff(aTargetAltitude):
 
 # ---------------------- Define mission as thread ------------------------    
 def threaded_function():
-        arm_and_takeoff(vehicle.location.global_relative_frame.alt+1) # Fly up 1 meter
+        arm_and_takeoff(vehicle.location.global_relative_frame.alt+2) # Fly up 2 meter
         
         time.sleep(3)
         turn(180,True,"CW")
