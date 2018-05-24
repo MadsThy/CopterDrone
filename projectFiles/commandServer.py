@@ -9,8 +9,8 @@ from pymavlink import mavutil # Needed for command message definitions
 HOST = ''               # Symbolic name meaning all available interfaces
 PORT = 1337             # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST, PORT))    # Bind to host at port
-s.listen(5)             #Accept 5 connections at any one time
+s.bind((HOST, PORT))    # Bind to host at port to listen for incoming requests
+s.listen(5)             #Accept 5 connections at any one time. This listen methods listens for incoming connections.
 logging.info("Server listening on localhost:"+str(PORT))
 
 vehicle = connect('udp:127.0.0.1:14550',wait_ready=True)
